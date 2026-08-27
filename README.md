@@ -1,0 +1,163 @@
+<div align="center">
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:B8E6FF,52:9ED8FA,100:C8B6FF&height=190&section=header&text=Biel&fontSize=58&fontColor=ffffff&animation=fadeIn&fontAlignY=36"/>
+
+### Construindo IA local, software experimental e ferramentas que eu gostaria que existissem.
+
+<img src="https://img.shields.io/badge/IA%20Local-B8E6FF?style=for-the-badge&labelColor=B8E6FF&color=B8E6FF">
+<img src="https://img.shields.io/badge/Self--hosted-9ED8FA?style=for-the-badge&labelColor=9ED8FA&color=9ED8FA">
+<img src="https://img.shields.io/badge/Software-C8B6FF?style=for-the-badge&labelColor=C8B6FF&color=C8B6FF">
+<img src="https://img.shields.io/badge/Experimentos-BFA7F2?style=for-the-badge&labelColor=BFA7F2&color=BFA7F2">
+
+<br><br>
+
+<img src="https://img.shields.io/badge/Rust-000000?style=flat-square&logo=rust&logoColor=white">
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white">
+<img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB">
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white">
+<img src="https://img.shields.io/badge/Tauri-24C8DB?style=flat-square&logo=tauri&logoColor=white">
+<img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white">
+
+</div>
+
+<br>
+
+Desenvolvo projetos principalmente em torno de **IA local, privacidade, aplicações próprias, infraestrutura self-hosted e experimentação**.
+
+Boa parte deles nasce de uma pergunta simples:
+
+> 🩵 **Quanto disso dá para tornar realmente nosso, local e controlável, em vez de depender de mais um serviço na nuvem?**
+
+---
+
+# 🧠 BielOS
+
+> ### 🔒 Meu projeto principal e maior ecossistema experimental
+>
+> **IA · software · infraestrutura · integração de ferramentas**
+
+O **BielOS** conecta diferentes ideias de software, IA, automação e infraestrutura em uma arquitetura maior.
+
+É onde exploro como ferramentas independentes, agentes, serviços e componentes locais podem trabalhar juntos sem transformar tudo em uma única aplicação monolítica.
+
+<img src="https://img.shields.io/badge/STATUS-DESENVOLVIMENTO%20PRIVADO-B8E6FF?style=for-the-badge">
+<img src="https://img.shields.io/badge/PROJETO-PRINCIPAL-C8B6FF?style=for-the-badge">
+
+---
+
+# ✨ Projetos em destaque
+
+## 🤖 [A.I.P](https://github.com/bielxdh3/AIP)
+
+### Agentes Independentes Personalizáveis
+
+Plataforma local-first para agentes persistentes com identidade própria, memória, conversas, modelo e estado individual.
+
+<img src="https://img.shields.io/badge/Rust-000000?style=flat-square&logo=rust&logoColor=white">
+<img src="https://img.shields.io/badge/Tauri-24C8DB?style=flat-square&logo=tauri&logoColor=white">
+<img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB">
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white">
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white">
+<img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white">
+<img src="https://img.shields.io/badge/Ollama-111111?style=flat-square&logo=ollama&logoColor=white">
+
+---
+
+## ⚔️ [Prompt Arena](https://github.com/bielxdh3/Prompt-Arena)
+
+### Benchmark reproduzível para IA local
+
+Workspace desktop para criar benchmarks, executar modelos locais e preservar evidências das execuções, permitindo comparar modelos de forma inspecionável e reproduzível.
+
+<img src="https://img.shields.io/badge/Rust-000000?style=flat-square&logo=rust&logoColor=white">
+<img src="https://img.shields.io/badge/Tauri-24C8DB?style=flat-square&logo=tauri&logoColor=white">
+<img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB">
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white">
+<img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white">
+<img src="https://img.shields.io/badge/Ollama-111111?style=flat-square&logo=ollama&logoColor=white">
+
+---
+
+## 🗄️ [root.ark](https://github.com/bielxdh3/root.ark)
+
+### Armazenamento e sincronização self-hosted
+
+Sistema para gerenciamento de arquivos em rede privada com usuários, permissões, versões, compartilhamento, backups, sincronização e integrações de armazenamento.
+
+<img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white">
+<img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white">
+<img src="https://img.shields.io/badge/Self--Hosted-B8E6FF?style=flat-square">
+
+---
+
+## 🔐 [L-Vault](https://github.com/bielxdh3/L-vault)
+
+### LocalVault Backup Manager
+
+Cofre local para preservar, organizar, verificar e consultar backups do Gmail e arquivos exportados pelo Google Takeout.
+
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white">
+<img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white">
+<img src="https://img.shields.io/badge/Gmail%20API-EA4335?style=flat-square&logo=gmail&logoColor=white">
+<img src="https://img.shields.io/badge/Google%20Takeout-C8B6FF?style=flat-square">
+
+---
+
+## ⚙️ [Dual Codex](https://github.com/bielxdh3/Dual-Codex)
+
+### Orquestração local de múltiplos Codex
+
+Ferramenta para coordenar contas Codex isoladas em diferentes funções, como Architect, Executor e Reviewer, mantendo identidades, permissões e contextos separados.
+
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white">
+<img src="https://img.shields.io/badge/Codex-C8B6FF?style=flat-square">
+<img src="https://img.shields.io/badge/Local%20Tooling-B8E6FF?style=flat-square">
+
+---
+
+# 🧪 Outros projetos
+
+## 💰 [deManage](https://github.com/bielxdh3/demanage)
+
+Aplicação pessoal para gestão financeira, despesas, entradas, cartões, cofrinhos e acompanhamento do dinheiro ao longo do mês.
+
+<img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB">
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white">
+<img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white">
+<img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white">
+
+<br>
+
+## ☀️ [GPT-5.6 SUN MAX — Solar System](https://github.com/bielxdh3/GPT5.6-SUN-MAX-SOLAR-SYSTEM)
+
+Experiência 3D interativa do Sistema Solar para navegador, com exploração dos corpos celestes, controle da simulação e visualizações comparativas.
+
+**Benchmark do GPT-5.6 Sol no modo max**
+
+<img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB">
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white">
+<img src="https://img.shields.io/badge/Three.js-000000?style=flat-square&logo=three.js&logoColor=white">
+
+---
+
+# 🩵 Áreas que mais me interessam
+
+```text
+IA local          █████████████████████
+Self-hosting      ████████████████████
+Experimentos      ███████████████████
+```
+
+Gosto especialmente de construir projetos onde **dados, estado e execução permanecem explícitos e sob controle do usuário**.
+
+Muitos começam como experimentos pequenos e vão crescendo até virar software bem mais sério do que deveriam ter virado. 😅
+
+---
+
+<div align="center">
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:C8B6FF,48:B8E6FF,100:9ED8FA&height=110&section=footer"/>
+
+### Construindo, testando e descobrindo até onde dá para levar uma ideia.
+
+</div>
