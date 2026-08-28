@@ -33,12 +33,16 @@ jobs:
 
       - name: Generate commit history
         env:
-          # Se PROFILE_STATS_TOKEN existir, o script inclui commits públicos + privados.
-          # Sem o secret, continua funcionando em modo somente público.
-          PROFILE_STATS_TOKEN: ${{ secrets.PROFILE_STATS_TOKEN }}
+          # O valor bruto fica somente no ambiente do runner e nunca é impresso.
+          # PATs do GitHub não contêm espaços; remover whitespace também corrige
+          # quebras de linha acidentais copiadas junto do secret.
+          RAW_PROFILE_STATS_TOKEN: ${{ secrets.PROFILE_STATS_TOKEN }}
           GITHUB_TOKEN: ${{ github.token }}
           PROFILE_USER: bielxdh3
-        run: python scripts/update_profile_stats.py
+        shell: bash
+        run: |
+          export PROFILE_STATS_TOKEN="$(printf '%s' "$RAW_PROFILE_STATS_TOKEN" | tr -d '[:space:]')"
+          python scripts/update_profile_stats.py
 
       - name: Commit generated data as bot
         shell: bash
