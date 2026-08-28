@@ -5,214 +5,204 @@ import argparse
 import json
 import math
 import os
-from datetime import date, datetime, time, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
+from urllib.parse import quote, urlencode
 from urllib.request import Request, urlopen
 
-GRAPHQL_URL = "https://api.github.com/graphql"
-USER_API_URL = "https://api.github.com/user"
+API_URL = "https://api.github.com"
+USER_API_URL = f"{API_URL}/user"
 UTC = timezone.utc
 
 
-def iso_z(value: datetime) -> str:
-    return value.astimezone(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+def clean_token(value: str) -> str:
+    token = "".join(value.split())
+    if any(ord(ch) < 33 or ord(ch) == 127 for ch in token):
+        raise RuntimeError("O token contém caracteres de controle inválidos.")
+    return token
 
 
-def parse_github_datetime(value: str) -> datetime:
-    return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(UTC)
-
-
-def graphql(token: str, query: str, variables: dict[str, object]) -> dict:
-    payload = json.dumps({"query": query, "variables": variables}).encode("utf-8")
+def api_get(token: str, url: str, *, allow_empty_repo: bool = False):
     request = Request(
-        GRAPHQL_URL,
-        data=payload,
-        method="POST",
+        url,
         headers={
             "Authorization": f"Bearer {token}",
-            "Content-Type": "application/json",
+            "Accept": "application/vnd.github+json",
+            "X-GitHub-Api-Version": "2022-11-28",
             "User-Agent": "bielxdh3-profile-commit-graph",
         },
     )
     try:
         with urlopen(request, timeout=45) as response:
-            body = json.loads(response.read().decode("utf-8"))
+            return json.loads(response.read().decode("utf-8")), response.headers
     except HTTPError as exc:
+        if allow_empty_repo and exc.code in {404, 409}:
+            return [], exc.headers
         details = exc.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"GitHub GraphQL HTTP {exc.code}: {details}") from exc
+        raise RuntimeError(f"GitHub API HTTP {exc.code}: {details}") from exc
     except URLError as exc:
-        raise RuntimeError(f"Falha ao acessar o GitHub GraphQL: {exc}") from exc
-
-    if body.get("errors"):
-        raise RuntimeError(
-            f"GitHub GraphQL retornou erros: {json.dumps(body['errors'], ensure_ascii=False)}"
-        )
-    return body["data"]
+        raise RuntimeError(f"Falha ao acessar a API do GitHub: {exc}") from exc
 
 
 def validate_private_token(token: str, expected_login: str) -> None:
-    """Valida o PAT classic usado para incluir contribuições privadas.
-
-    O ContributionsCollection do GraphQL inclui contribuições em repositórios
-    privados/internos quando o token tem read:user. O escopo repo é exigido aqui
-    para que o token também tenha acesso aos repositórios privados da conta.
-    """
-    request = Request(
-        USER_API_URL,
-        headers={
-            "Authorization": f"Bearer {token}",
-            "Accept": "application/vnd.github+json",
-            "User-Agent": "bielxdh3-profile-commit-graph",
-        },
-    )
-    try:
-        with urlopen(request, timeout=30) as response:
-            body = json.loads(response.read().decode("utf-8"))
-            scopes_header = response.headers.get("X-OAuth-Scopes", "")
-    except HTTPError as exc:
-        details = exc.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"PROFILE_STATS_TOKEN inválido (HTTP {exc.code}): {details}") from exc
-    except URLError as exc:
-        raise RuntimeError(f"Falha ao validar PROFILE_STATS_TOKEN: {exc}") from exc
-
+    body, headers = api_get(token, USER_API_URL)
     login = str(body.get("login", ""))
     if login.lower() != expected_login.lower():
         raise RuntimeError(
             f"PROFILE_STATS_TOKEN pertence a @{login or 'desconhecido'}, não a @{expected_login}."
         )
 
+    scopes_header = headers.get("X-OAuth-Scopes", "")
     scopes = {item.strip() for item in scopes_header.split(",") if item.strip()}
     missing = {"repo", "read:user"} - scopes
     if missing:
-        missing_text = ", ".join(sorted(missing))
         raise RuntimeError(
-            "PROFILE_STATS_TOKEN precisa ser um Personal Access Token (classic) "
-            f"com os escopos repo e read:user. Faltando: {missing_text}."
+            "PROFILE_STATS_TOKEN precisa ser PAT classic com repo e read:user. "
+            f"Faltando: {', '.join(sorted(missing))}."
         )
 
 
-def get_created_at(token: str, login: str) -> datetime:
-    query = '''
-    query($login: String!) {
-      user(login: $login) {
-        createdAt
-      }
-    }
-    '''
-    data = graphql(token, query, {"login": login})
-    user = data.get("user")
-    if not user:
-        raise RuntimeError(f"Usuário GitHub não encontrado: {login}")
-    return parse_github_datetime(user["createdAt"])
+def paged_list(token: str, base_url: str, *, allow_empty_repo: bool = False) -> list[dict]:
+    results: list[dict] = []
+    page = 1
+    separator = "&" if "?" in base_url else "?"
+    while True:
+        url = f"{base_url}{separator}per_page=100&page={page}"
+        batch, _ = api_get(token, url, allow_empty_repo=allow_empty_repo)
+        if not isinstance(batch, list):
+            raise RuntimeError(f"Resposta inesperada da API em {url}")
+        results.extend(batch)
+        if len(batch) < 100:
+            break
+        page += 1
+    return results
 
 
-def get_interval_total(token: str, login: str, start: datetime, end: datetime) -> int:
-    query = '''
-    query($login: String!, $from: DateTime!, $to: DateTime!) {
-      user(login: $login) {
-        contributionsCollection(from: $from, to: $to) {
-          totalCommitContributions
-        }
-      }
-    }
-    '''
-    data = graphql(
+def list_repositories(token: str, login: str, include_private: bool) -> list[dict]:
+    if include_private:
+        query = urlencode(
+            {
+                "visibility": "all",
+                "affiliation": "owner,collaborator,organization_member",
+                "sort": "full_name",
+            }
+        )
+        return paged_list(token, f"{API_URL}/user/repos?{query}")
+
+    query = urlencode({"type": "all", "sort": "full_name"})
+    return paged_list(token, f"{API_URL}/users/{quote(login)}/repos?{query}")
+
+
+def list_branches(token: str, full_name: str) -> list[dict]:
+    owner, repo = full_name.split("/", 1)
+    return paged_list(
         token,
-        query,
-        {"login": login, "from": iso_z(start), "to": iso_z(end)},
+        f"{API_URL}/repos/{quote(owner)}/{quote(repo)}/branches",
+        allow_empty_repo=True,
     )
-    return int(data["user"]["contributionsCollection"]["totalCommitContributions"])
 
 
-def find_first_commit_day(token: str, login: str, created_at: datetime, now: datetime) -> date:
-    """Localiza o primeiro dia com commit reconhecido no escopo atual do token."""
-    cursor = datetime.combine(created_at.date(), time.min, tzinfo=UTC)
-
-    while cursor <= now:
-        interval_end = min(cursor + timedelta(days=180) - timedelta(seconds=1), now)
-        if get_interval_total(token, login, cursor, interval_end) > 0:
-            low = cursor.date()
-            high = interval_end.date()
-
-            while low < high:
-                midpoint = low + timedelta(days=(high - low).days // 2)
-                midpoint_end = min(
-                    datetime.combine(midpoint, time(23, 59, 59), tzinfo=UTC),
-                    now,
-                )
-                if get_interval_total(token, login, cursor, midpoint_end) > 0:
-                    high = midpoint
-                else:
-                    low = midpoint + timedelta(days=1)
-
-            return low
-
-        cursor = interval_end + timedelta(seconds=1)
-
-    return now.date()
+def list_authored_commits_on_branch(
+    token: str, full_name: str, branch: str, login: str
+) -> list[dict]:
+    owner, repo = full_name.split("/", 1)
+    query = urlencode({"sha": branch, "author": login})
+    return paged_list(
+        token,
+        f"{API_URL}/repos/{quote(owner)}/{quote(repo)}/commits?{query}",
+        allow_empty_repo=True,
+    )
 
 
-def get_daily_totals(token: str, login: str, start_day: date, end_day: date) -> dict[date, int]:
-    days: list[date] = []
-    current = start_day
-    while current <= end_day:
-        days.append(current)
+def scan_real_commits(
+    token: str, login: str, include_private: bool
+) -> tuple[dict[date, int], int, int]:
+    """Conta commits reais alcançáveis por branches, deduplicando por SHA.
+
+    Diferente de totalCommitContributions, isto inclui commits em branches que não
+    são a default/gh-pages. Repositórios privados são lidos apenas no runner e seus
+    nomes nunca entram no JSON/SVG público.
+    """
+    repositories = list_repositories(token, login, include_private)
+    seen_shas: set[str] = set()
+    daily: dict[date, int] = {}
+    branches_scanned = 0
+    now = datetime.now(UTC)
+
+    for repository in repositories:
+        full_name = str(repository.get("full_name", ""))
+        if not full_name or repository.get("disabled"):
+            continue
+
+        branches = list_branches(token, full_name)
+        for branch_info in branches:
+            branch = str(branch_info.get("name", ""))
+            if not branch:
+                continue
+            branches_scanned += 1
+
+            commits = list_authored_commits_on_branch(token, full_name, branch, login)
+            for item in commits:
+                sha = str(item.get("sha", ""))
+                if not sha or sha in seen_shas:
+                    continue
+                seen_shas.add(sha)
+
+                commit = item.get("commit") or {}
+                author = commit.get("author") or {}
+                committer = commit.get("committer") or {}
+                raw_date = author.get("date") or committer.get("date")
+                if not raw_date:
+                    continue
+
+                try:
+                    authored_at = datetime.fromisoformat(
+                        str(raw_date).replace("Z", "+00:00")
+                    ).astimezone(UTC)
+                except ValueError:
+                    continue
+
+                if authored_at > now + timedelta(days=1):
+                    continue
+                day = authored_at.date()
+                daily[day] = daily.get(day, 0) + 1
+
+    return daily, len(repositories), branches_scanned
+
+
+def fill_daily_series(daily_counts: dict[date, int]) -> list[dict[str, object]]:
+    if not daily_counts:
+        return []
+
+    first_day = min(daily_counts)
+    last_day = datetime.now(UTC).date()
+    current = first_day
+    running = 0
+    series: list[dict[str, object]] = []
+
+    while current <= last_day:
+        count = daily_counts.get(current, 0)
+        running += count
+        series.append(
+            {
+                "date": current.isoformat(),
+                "commits": count,
+                "total": running,
+            }
+        )
         current += timedelta(days=1)
 
-    result: dict[date, int] = {day: 0 for day in days}
-
-    for offset in range(0, len(days), 28):
-        batch = days[offset : offset + 28]
-        fields = []
-        for index, day in enumerate(batch):
-            start = datetime.combine(day, time.min, tzinfo=UTC)
-            end = datetime.combine(day, time(23, 59, 59), tzinfo=UTC)
-            fields.append(
-                f'''d{index}: contributionsCollection(
-                  from: "{iso_z(start)}",
-                  to: "{iso_z(end)}"
-                ) {{
-                  totalCommitContributions
-                }}'''
-            )
-
-        query = (
-            "query($login: String!) {\n"
-            "  user(login: $login) {\n"
-            + "\n".join("    " + field.replace("\n", "\n    ") for field in fields)
-            + "\n  }\n}"
-        )
-        data = graphql(token, query, {"login": login})
-        user = data["user"]
-        for index, day in enumerate(batch):
-            result[day] = int(user[f"d{index}"]["totalCommitContributions"])
-
-    return result
+    return series
 
 
 def format_pt(value: int) -> str:
     return f"{value:,}".replace(",", ".")
 
 
-def build_series(daily_counts: dict[date, int]) -> list[dict[str, object]]:
-    running = 0
-    series: list[dict[str, object]] = []
-    for day in sorted(daily_counts):
-        running += daily_counts[day]
-        series.append(
-            {
-                "date": day.isoformat(),
-                "commits": daily_counts[day],
-                "total": running,
-            }
-        )
-    return series
-
-
 def render_svg(
     login: str,
-    lifetime_total: int,
+    total: int,
     series: list[dict[str, object]],
     include_private: bool,
 ) -> str:
@@ -221,7 +211,7 @@ def render_svg(
     plot_w = width - left - right
     plot_h = height - top - bottom
 
-    totals = [int(item["total"]) for item in series] or [lifetime_total]
+    totals = [int(item["total"]) for item in series] or [total]
     y_min_raw = min(totals)
     y_max_raw = max(totals)
 
@@ -238,12 +228,14 @@ def render_svg(
             return left + plot_w / 2
         return left + (index / (len(series) - 1)) * plot_w
 
-    def y_for(total: int) -> float:
-        return top + (1 - ((total - y_min) / y_span)) * plot_h
+    def y_for(value: int) -> float:
+        return top + (1 - ((value - y_min) / y_span)) * plot_h
 
     points = [(x_for(i), y_for(int(item["total"]))) for i, item in enumerate(series)]
     polyline = " ".join(f"{x:.2f},{y:.2f}" for x, y in points)
 
+    area_path = ""
+    latest_x, latest_y = left + plot_w / 2, top + plot_h / 2
     if points:
         area_path = (
             f"M {points[0][0]:.2f} {top + plot_h:.2f} "
@@ -251,9 +243,6 @@ def render_svg(
             + f" L {points[-1][0]:.2f} {top + plot_h:.2f} Z"
         )
         latest_x, latest_y = points[-1]
-    else:
-        area_path = ""
-        latest_x, latest_y = left + plot_w / 2, top + plot_h / 2
 
     y_ticks = []
     for i in range(5):
@@ -278,9 +267,8 @@ def render_svg(
     x_labels = []
     for idx in x_tick_indices:
         day = date.fromisoformat(str(series[idx]["date"]))
-        x = x_for(idx)
         x_labels.append(
-            f'  <text x="{x:.2f}" y="{top + plot_h + 34}" text-anchor="middle" class="axis">{day.strftime("%d/%m/%y")}</text>'
+            f'  <text x="{x_for(idx):.2f}" y="{top + plot_h + 34}" text-anchor="middle" class="axis">{day.strftime("%d/%m/%y")}</text>'
         )
 
     line_markup = ""
@@ -293,28 +281,15 @@ def render_svg(
 
     first_date = series[0]["date"] if series else ""
     last_date = series[-1]["date"] if series else ""
-
-    if include_private:
-        accessible_title = f"Evolução dos commits de {login}"
-        accessible_desc = (
-            "Gráfico acumulado dos commits públicos e privados reconhecidos pelo GitHub, "
-            f"do primeiro commit em {first_date} até {last_date}. Total atual: {lifetime_total}. "
-            "Nenhum nome ou detalhe de repositório privado é publicado."
-        )
-        visible_title = "EVOLUÇÃO DOS COMMITS"
-        subtitle = "commits públicos + privados · repositórios privados permanecem anônimos"
-    else:
-        accessible_title = f"Evolução dos commits públicos de {login}"
-        accessible_desc = (
-            "Gráfico acumulado somente dos commits públicos reconhecidos pelo GitHub, "
-            f"do primeiro commit público em {first_date} até {last_date}. Total atual: {lifetime_total}."
-        )
-        visible_title = "EVOLUÇÃO DOS COMMITS PÚBLICOS"
-        subtitle = "somente commits públicos · adicione PROFILE_STATS_TOKEN para incluir privados"
+    private_note = (
+        "repositórios privados permanecem anônimos"
+        if include_private
+        else "somente repositórios públicos acessíveis"
+    )
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320" role="img" aria-labelledby="title desc">
-  <title id="title">{accessible_title}</title>
-  <desc id="desc">{accessible_desc}</desc>
+  <title id="title">Evolução dos commits de {login}</title>
+  <desc id="desc">Gráfico acumulado dos commits reais alcançáveis por branches, de {first_date} até {last_date}. Total atual: {total}. {private_note}.</desc>
   <defs>
     <linearGradient id="lineGradient" x1="0" x2="1">
       <stop offset="0%" stop-color="#B8E6FF"/>
@@ -335,9 +310,9 @@ def render_svg(
   </defs>
 
   <rect x="1" y="1" width="898" height="318" rx="18" fill="#0D1117" stroke="#30363D"/>
-  <text x="42" y="38" class="title">{visible_title}</text>
-  <text x="858" y="38" text-anchor="end" class="value">{format_pt(lifetime_total)}</text>
-  <text x="42" y="60" class="subtitle">{subtitle}</text>
+  <text x="42" y="38" class="title">EVOLUÇÃO DOS COMMITS</text>
+  <text x="858" y="38" text-anchor="end" class="value">{format_pt(total)}</text>
+  <text x="42" y="60" class="subtitle">todas as branches acessíveis · {private_note}</text>
   <text x="858" y="60" text-anchor="end" class="small">@{login}</text>
 
 {grid}
@@ -349,42 +324,42 @@ def render_svg(
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Atualiza o gráfico de commits do README de perfil.")
+    parser = argparse.ArgumentParser(description="Atualiza o gráfico real de commits do perfil.")
     parser.add_argument("--user", default=os.environ.get("PROFILE_USER", "bielxdh3"))
     parser.add_argument("--svg", default="assets/commit-history.svg")
     parser.add_argument("--data", default="data/commit-history.json")
     args = parser.parse_args()
 
-    private_token = os.environ.get("PROFILE_STATS_TOKEN", "").strip()
-    workflow_token = os.environ.get("GITHUB_TOKEN", "").strip()
-
+    private_token = clean_token(os.environ.get("PROFILE_STATS_TOKEN", ""))
+    workflow_token = clean_token(os.environ.get("GITHUB_TOKEN", ""))
     include_private = bool(private_token)
+
     if include_private:
         validate_private_token(private_token, args.user)
         token = private_token
-    else:
+    elif workflow_token:
         token = workflow_token
-        if not token:
-            raise SystemExit("Defina GITHUB_TOKEN ou PROFILE_STATS_TOKEN.")
+    else:
+        raise SystemExit("Defina GITHUB_TOKEN ou PROFILE_STATS_TOKEN.")
 
-    now = datetime.now(UTC).replace(microsecond=0)
-    created_at = get_created_at(token, args.user)
-    first_commit_day = find_first_commit_day(token, args.user, created_at, now)
-
-    today = now.date()
-    daily_counts = get_daily_totals(token, args.user, first_commit_day, today)
-    lifetime_total = sum(daily_counts.values())
-    series = build_series(daily_counts)
+    daily_counts, repositories_scanned, branches_scanned = scan_real_commits(
+        token, args.user, include_private
+    )
+    series = fill_daily_series(daily_counts)
+    total = sum(daily_counts.values())
 
     payload = {
-        "schema": 3,
+        "schema": 4,
         "user": args.user,
-        "generated_at": iso_z(now),
-        "scope": "public_and_private" if include_private else "public_only",
+        "generated_at": datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+        "scope": "all_accessible_repositories" if include_private else "public_repositories",
         "includes_private_commits": include_private,
         "private_repository_details_published": False,
-        "first_commit_date": first_commit_day.isoformat(),
-        "total_commit_contributions": lifetime_total,
+        "counting_method": "unique authored commits reachable from accessible branches, deduplicated globally by SHA",
+        "repositories_scanned": repositories_scanned,
+        "branches_scanned": branches_scanned,
+        "first_commit_date": series[0]["date"] if series else None,
+        "total_commits": total,
         "series": series,
     }
 
@@ -392,16 +367,12 @@ def main() -> None:
     data_path = Path(args.data)
     svg_path.parent.mkdir(parents=True, exist_ok=True)
     data_path.parent.mkdir(parents=True, exist_ok=True)
-
-    svg_path.write_text(
-        render_svg(args.user, lifetime_total, series, include_private),
-        encoding="utf-8",
-    )
+    svg_path.write_text(render_svg(args.user, total, series, include_private), encoding="utf-8")
     data_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    scope_text = "públicos + privados" if include_private else "públicos"
     print(
-        f"Atualizado: {format_pt(lifetime_total)} commits {scope_text} contabilizados pelo GitHub."
+        f"Atualizado: {format_pt(total)} commits reais; "
+        f"{repositories_scanned} repositórios e {branches_scanned} branches varridos."
     )
 
 
