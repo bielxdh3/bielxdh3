@@ -1,0 +1,54 @@
+name: Update profile commit graph
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 6 * * *"
+  push:
+    paths:
+      - "scripts/update_profile_stats.py"
+      - ".github/workflows/update-profile-stats.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-commit-stats
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate commit history
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROFILE_STATS_TOKEN || github.token }}
+          PROFILE_USER: bielxdh3
+          PROFILE_HISTORY_DAYS: "365"
+        run: python scripts/update_profile_stats.py
+
+      - name: Commit generated data as bot
+        shell: bash
+        run: |
+          git add assets/commit-history.svg data/commit-history.json
+
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: update profile commit graph"
+          git push
