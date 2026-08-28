@@ -27,10 +27,10 @@ Boa parte deles nasce de uma pergunta simples:
 # 📈 Evolução dos commits
 
 <p align="center">
-  <img src="./assets/commit-history.svg" alt="Gráfico acumulado da evolução dos commits reconhecidos pelo GitHub" width="100%">
+  <img src="./assets/commit-history.svg" alt="Gráfico acumulado da evolução dos commits" width="100%">
 </p>
 
-<sub>Atualizado automaticamente uma vez por dia. Quando o acesso privado está habilitado, o gráfico soma commits públicos e privados sem publicar nomes ou detalhes de repositórios privados. Os commits da própria atualização são feitos por <code>github-actions[bot]</code>, então não entram nas minhas contribuições pessoais.</sub>
+<sub>Atualizado automaticamente uma vez por dia. O gráfico conta commits únicos de minha autoria encontrados em todas as branches acessíveis, incluindo repositórios públicos e privados, com deduplicação por SHA. Nenhum nome ou detalhe de repositório privado é publicado. Os commits da própria atualização são feitos por <code>github-actions[bot]</code>.</sub>
 
 ---
 
