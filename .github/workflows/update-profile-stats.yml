@@ -31,11 +31,12 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Generate commit history
+      - name: Generate public commit history
         env:
-          GITHUB_TOKEN: ${{ secrets.PROFILE_STATS_TOKEN || github.token }}
+          # Deliberadamente usa apenas o token do próprio workflow.
+          # Nenhum PAT com acesso a repositórios privados é usado.
+          GITHUB_TOKEN: ${{ github.token }}
           PROFILE_USER: bielxdh3
-          PROFILE_HISTORY_DAYS: "365"
         run: python scripts/update_profile_stats.py
 
       - name: Commit generated data as bot
@@ -50,5 +51,5 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore: update profile commit graph"
+          git commit -m "chore: update public profile commit graph"
           git push
