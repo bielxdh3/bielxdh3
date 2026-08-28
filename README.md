@@ -24,13 +24,13 @@ Boa parte deles nasce de uma pergunta simples:
 
 ---
 
-# 📈 Evolução dos commits públicos
+# 📈 Evolução dos commits
 
 <p align="center">
-  <img src="./assets/commit-history.svg" alt="Gráfico acumulado somente dos commits públicos reconhecidos pelo GitHub, começando no primeiro commit público" width="100%">
+  <img src="./assets/commit-history.svg" alt="Gráfico acumulado da evolução dos commits reconhecidos pelo GitHub" width="100%">
 </p>
 
-<sub>Este gráfico contabiliza <strong>somente commits públicos</strong> reconhecidos pelo GitHub e começa no meu primeiro commit público real. É atualizado automaticamente uma vez por dia. Os commits da própria atualização são feitos por <code>github-actions[bot]</code>, então não entram nas minhas contribuições pessoais.</sub>
+<sub>Atualizado automaticamente uma vez por dia. Quando o acesso privado está habilitado, o gráfico soma commits públicos e privados sem publicar nomes ou detalhes de repositórios privados. Os commits da própria atualização são feitos por <code>github-actions[bot]</code>, então não entram nas minhas contribuições pessoais.</sub>
 
 ---
 
