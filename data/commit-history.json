@@ -1,11 +1,12 @@
 {
-  "schema": 2,
+  "schema": 3,
   "user": "bielxdh3",
-  "generated_at": "2026-08-28T21:38:44Z",
-  "scope": "public commit contributions visible to the repository-scoped GitHub Actions token",
-  "public_only": true,
-  "first_public_commit_date": "2026-04-23",
-  "total_public_commit_contributions": 492,
+  "generated_at": "2026-08-28T21:59:48Z",
+  "scope": "public_and_private",
+  "includes_private_commits": true,
+  "private_repository_details_published": false,
+  "first_commit_date": "2026-04-23",
+  "total_commit_contributions": 701,
   "series": [
     {
       "date": "2026-04-23",
@@ -309,343 +310,343 @@
     },
     {
       "date": "2026-06-22",
-      "commits": 2,
-      "total": 42
+      "commits": 16,
+      "total": 56
     },
     {
       "date": "2026-06-23",
-      "commits": 0,
-      "total": 42
+      "commits": 11,
+      "total": 67
     },
     {
       "date": "2026-06-24",
-      "commits": 0,
-      "total": 42
+      "commits": 17,
+      "total": 84
     },
     {
       "date": "2026-06-25",
-      "commits": 0,
-      "total": 42
+      "commits": 20,
+      "total": 104
     },
     {
       "date": "2026-06-26",
-      "commits": 0,
-      "total": 42
+      "commits": 4,
+      "total": 108
     },
     {
       "date": "2026-06-27",
-      "commits": 0,
-      "total": 42
+      "commits": 1,
+      "total": 109
     },
     {
       "date": "2026-06-28",
-      "commits": 0,
-      "total": 42
+      "commits": 1,
+      "total": 110
     },
     {
       "date": "2026-06-29",
       "commits": 0,
-      "total": 42
+      "total": 110
     },
     {
       "date": "2026-06-30",
       "commits": 0,
-      "total": 42
+      "total": 110
     },
     {
       "date": "2026-07-01",
       "commits": 0,
-      "total": 42
+      "total": 110
     },
     {
       "date": "2026-07-02",
       "commits": 0,
-      "total": 42
+      "total": 110
     },
     {
       "date": "2026-07-03",
       "commits": 0,
-      "total": 42
+      "total": 110
     },
     {
       "date": "2026-07-04",
       "commits": 0,
-      "total": 42
+      "total": 110
     },
     {
       "date": "2026-07-05",
       "commits": 0,
-      "total": 42
+      "total": 110
     },
     {
       "date": "2026-07-06",
       "commits": 0,
-      "total": 42
+      "total": 110
     },
     {
       "date": "2026-07-07",
       "commits": 0,
-      "total": 42
+      "total": 110
     },
     {
       "date": "2026-07-08",
       "commits": 0,
-      "total": 42
+      "total": 110
     },
     {
       "date": "2026-07-09",
       "commits": 0,
-      "total": 42
+      "total": 110
     },
     {
       "date": "2026-07-10",
       "commits": 3,
-      "total": 45
+      "total": 113
     },
     {
       "date": "2026-07-11",
       "commits": 0,
-      "total": 45
+      "total": 113
     },
     {
       "date": "2026-07-12",
       "commits": 0,
-      "total": 45
+      "total": 113
     },
     {
       "date": "2026-07-13",
       "commits": 0,
-      "total": 45
+      "total": 113
     },
     {
       "date": "2026-07-14",
-      "commits": 0,
-      "total": 45
+      "commits": 38,
+      "total": 151
     },
     {
       "date": "2026-07-15",
-      "commits": 0,
-      "total": 45
+      "commits": 4,
+      "total": 155
     },
     {
       "date": "2026-07-16",
-      "commits": 0,
-      "total": 45
+      "commits": 6,
+      "total": 161
     },
     {
       "date": "2026-07-17",
-      "commits": 0,
-      "total": 45
+      "commits": 1,
+      "total": 162
     },
     {
       "date": "2026-07-18",
       "commits": 0,
-      "total": 45
+      "total": 162
     },
     {
       "date": "2026-07-19",
       "commits": 0,
-      "total": 45
+      "total": 162
     },
     {
       "date": "2026-07-20",
-      "commits": 14,
-      "total": 59
+      "commits": 20,
+      "total": 182
     },
     {
       "date": "2026-07-21",
-      "commits": 9,
-      "total": 68
+      "commits": 10,
+      "total": 192
     },
     {
       "date": "2026-07-22",
-      "commits": 2,
-      "total": 70
+      "commits": 4,
+      "total": 196
     },
     {
       "date": "2026-07-23",
       "commits": 0,
-      "total": 70
+      "total": 196
     },
     {
       "date": "2026-07-24",
       "commits": 1,
-      "total": 71
+      "total": 197
     },
     {
       "date": "2026-07-25",
       "commits": 43,
-      "total": 114
+      "total": 240
     },
     {
       "date": "2026-07-26",
       "commits": 14,
-      "total": 128
+      "total": 254
     },
     {
       "date": "2026-07-27",
       "commits": 3,
-      "total": 131
+      "total": 257
     },
     {
       "date": "2026-07-28",
       "commits": 2,
-      "total": 133
+      "total": 259
     },
     {
       "date": "2026-07-29",
       "commits": 6,
-      "total": 139
+      "total": 265
     },
     {
       "date": "2026-07-30",
       "commits": 9,
-      "total": 148
+      "total": 274
     },
     {
       "date": "2026-07-31",
       "commits": 23,
-      "total": 171
+      "total": 297
     },
     {
       "date": "2026-08-01",
-      "commits": 47,
-      "total": 218
+      "commits": 50,
+      "total": 347
     },
     {
       "date": "2026-08-02",
-      "commits": 14,
-      "total": 232
+      "commits": 47,
+      "total": 394
     },
     {
       "date": "2026-08-03",
-      "commits": 0,
-      "total": 232
+      "commits": 12,
+      "total": 406
     },
     {
       "date": "2026-08-04",
-      "commits": 0,
-      "total": 232
+      "commits": 8,
+      "total": 414
     },
     {
       "date": "2026-08-05",
-      "commits": 0,
-      "total": 232
+      "commits": 8,
+      "total": 422
     },
     {
       "date": "2026-08-06",
-      "commits": 7,
-      "total": 239
+      "commits": 12,
+      "total": 434
     },
     {
       "date": "2026-08-07",
       "commits": 0,
-      "total": 239
+      "total": 434
     },
     {
       "date": "2026-08-08",
       "commits": 11,
-      "total": 250
+      "total": 445
     },
     {
       "date": "2026-08-09",
       "commits": 0,
-      "total": 250
+      "total": 445
     },
     {
       "date": "2026-08-10",
       "commits": 2,
-      "total": 252
+      "total": 447
     },
     {
       "date": "2026-08-11",
-      "commits": 7,
-      "total": 259
+      "commits": 8,
+      "total": 455
     },
     {
       "date": "2026-08-12",
       "commits": 0,
-      "total": 259
+      "total": 455
     },
     {
       "date": "2026-08-13",
-      "commits": 10,
-      "total": 269
+      "commits": 11,
+      "total": 466
     },
     {
       "date": "2026-08-14",
-      "commits": 11,
-      "total": 280
+      "commits": 13,
+      "total": 479
     },
     {
       "date": "2026-08-15",
       "commits": 4,
-      "total": 284
+      "total": 483
     },
     {
       "date": "2026-08-16",
       "commits": 27,
-      "total": 311
+      "total": 510
     },
     {
       "date": "2026-08-17",
       "commits": 2,
-      "total": 313
+      "total": 512
     },
     {
       "date": "2026-08-18",
-      "commits": 0,
-      "total": 313
+      "commits": 1,
+      "total": 513
     },
     {
       "date": "2026-08-19",
-      "commits": 3,
-      "total": 316
+      "commits": 5,
+      "total": 518
     },
     {
       "date": "2026-08-20",
       "commits": 69,
-      "total": 385
+      "total": 587
     },
     {
       "date": "2026-08-21",
       "commits": 13,
-      "total": 398
+      "total": 600
     },
     {
       "date": "2026-08-22",
       "commits": 49,
-      "total": 447
+      "total": 649
     },
     {
       "date": "2026-08-23",
       "commits": 6,
-      "total": 453
+      "total": 655
     },
     {
       "date": "2026-08-24",
       "commits": 4,
-      "total": 457
+      "total": 659
     },
     {
       "date": "2026-08-25",
       "commits": 0,
-      "total": 457
+      "total": 659
     },
     {
       "date": "2026-08-26",
       "commits": 0,
-      "total": 457
+      "total": 659
     },
     {
       "date": "2026-08-27",
-      "commits": 18,
-      "total": 475
+      "commits": 20,
+      "total": 679
     },
     {
       "date": "2026-08-28",
-      "commits": 17,
-      "total": 492
+      "commits": 22,
+      "total": 701
     }
   ]
 }
