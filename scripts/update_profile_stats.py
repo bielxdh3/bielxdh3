@@ -11,6 +11,7 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 GRAPHQL_URL = "https://api.github.com/graphql"
+USER_API_URL = "https://api.github.com/user"
 UTC = timezone.utc
 
 
@@ -50,6 +51,47 @@ def graphql(token: str, query: str, variables: dict[str, object]) -> dict:
     return body["data"]
 
 
+def validate_private_token(token: str, expected_login: str) -> None:
+    """Valida o PAT classic usado para incluir contribuições privadas.
+
+    O ContributionsCollection do GraphQL inclui contribuições em repositórios
+    privados/internos quando o token tem read:user. O escopo repo é exigido aqui
+    para que o token também tenha acesso aos repositórios privados da conta.
+    """
+    request = Request(
+        USER_API_URL,
+        headers={
+            "Authorization": f"Bearer {token}",
+            "Accept": "application/vnd.github+json",
+            "User-Agent": "bielxdh3-profile-commit-graph",
+        },
+    )
+    try:
+        with urlopen(request, timeout=30) as response:
+            body = json.loads(response.read().decode("utf-8"))
+            scopes_header = response.headers.get("X-OAuth-Scopes", "")
+    except HTTPError as exc:
+        details = exc.read().decode("utf-8", errors="replace")
+        raise RuntimeError(f"PROFILE_STATS_TOKEN inválido (HTTP {exc.code}): {details}") from exc
+    except URLError as exc:
+        raise RuntimeError(f"Falha ao validar PROFILE_STATS_TOKEN: {exc}") from exc
+
+    login = str(body.get("login", ""))
+    if login.lower() != expected_login.lower():
+        raise RuntimeError(
+            f"PROFILE_STATS_TOKEN pertence a @{login or 'desconhecido'}, não a @{expected_login}."
+        )
+
+    scopes = {item.strip() for item in scopes_header.split(",") if item.strip()}
+    missing = {"repo", "read:user"} - scopes
+    if missing:
+        missing_text = ", ".join(sorted(missing))
+        raise RuntimeError(
+            "PROFILE_STATS_TOKEN precisa ser um Personal Access Token (classic) "
+            f"com os escopos repo e read:user. Faltando: {missing_text}."
+        )
+
+
 def get_created_at(token: str, login: str) -> datetime:
     query = '''
     query($login: String!) {
@@ -84,12 +126,7 @@ def get_interval_total(token: str, login: str, start: datetime, end: datetime) -
 
 
 def find_first_commit_day(token: str, login: str, created_at: datetime, now: datetime) -> date:
-    """Localiza o primeiro dia com commit público reconhecido pelo GitHub.
-
-    Primeiro percorre a vida da conta em blocos de até 180 dias. Quando encontra
-    o primeiro bloco com commits, faz uma busca binária para achar o primeiro dia
-    real. Assim o gráfico não começa na criação da conta nem em uma janela fixa.
-    """
+    """Localiza o primeiro dia com commit reconhecido no escopo atual do token."""
     cursor = datetime.combine(created_at.date(), time.min, tzinfo=UTC)
 
     while cursor <= now:
@@ -125,8 +162,6 @@ def get_daily_totals(token: str, login: str, start_day: date, end_day: date) -> 
 
     result: dict[date, int] = {day: 0 for day in days}
 
-    # Vários contributionsCollection com aliases em uma única query.
-    # Lotes de 28 dias mantêm custo e tamanho da query previsíveis.
     for offset in range(0, len(days), 28):
         batch = days[offset : offset + 28]
         fields = []
@@ -175,7 +210,12 @@ def build_series(daily_counts: dict[date, int]) -> list[dict[str, object]]:
     return series
 
 
-def render_svg(login: str, lifetime_total: int, series: list[dict[str, object]]) -> str:
+def render_svg(
+    login: str,
+    lifetime_total: int,
+    series: list[dict[str, object]],
+    include_private: bool,
+) -> str:
     width, height = 900, 320
     left, right, top, bottom = 92, 40, 90, 56
     plot_w = width - left - right
@@ -254,9 +294,27 @@ def render_svg(login: str, lifetime_total: int, series: list[dict[str, object]])
     first_date = series[0]["date"] if series else ""
     last_date = series[-1]["date"] if series else ""
 
+    if include_private:
+        accessible_title = f"Evolução dos commits de {login}"
+        accessible_desc = (
+            "Gráfico acumulado dos commits públicos e privados reconhecidos pelo GitHub, "
+            f"do primeiro commit em {first_date} até {last_date}. Total atual: {lifetime_total}. "
+            "Nenhum nome ou detalhe de repositório privado é publicado."
+        )
+        visible_title = "EVOLUÇÃO DOS COMMITS"
+        subtitle = "commits públicos + privados · repositórios privados permanecem anônimos"
+    else:
+        accessible_title = f"Evolução dos commits públicos de {login}"
+        accessible_desc = (
+            "Gráfico acumulado somente dos commits públicos reconhecidos pelo GitHub, "
+            f"do primeiro commit público em {first_date} até {last_date}. Total atual: {lifetime_total}."
+        )
+        visible_title = "EVOLUÇÃO DOS COMMITS PÚBLICOS"
+        subtitle = "somente commits públicos · adicione PROFILE_STATS_TOKEN para incluir privados"
+
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320" role="img" aria-labelledby="title desc">
-  <title id="title">Evolução dos commits públicos de {login}</title>
-  <desc id="desc">Gráfico acumulado somente dos commits públicos reconhecidos pelo GitHub, do primeiro commit público em {first_date} até {last_date}. Total atual: {lifetime_total}.</desc>
+  <title id="title">{accessible_title}</title>
+  <desc id="desc">{accessible_desc}</desc>
   <defs>
     <linearGradient id="lineGradient" x1="0" x2="1">
       <stop offset="0%" stop-color="#B8E6FF"/>
@@ -277,9 +335,9 @@ def render_svg(login: str, lifetime_total: int, series: list[dict[str, object]])
   </defs>
 
   <rect x="1" y="1" width="898" height="318" rx="18" fill="#0D1117" stroke="#30363D"/>
-  <text x="42" y="38" class="title">EVOLUÇÃO DOS COMMITS PÚBLICOS</text>
+  <text x="42" y="38" class="title">{visible_title}</text>
   <text x="858" y="38" text-anchor="end" class="value">{format_pt(lifetime_total)}</text>
-  <text x="42" y="60" class="subtitle">somente commits públicos · desde o primeiro commit público reconhecido pelo GitHub</text>
+  <text x="42" y="60" class="subtitle">{subtitle}</text>
   <text x="858" y="60" text-anchor="end" class="small">@{login}</text>
 
 {grid}
@@ -291,17 +349,23 @@ def render_svg(login: str, lifetime_total: int, series: list[dict[str, object]])
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Atualiza o gráfico público de commits do README de perfil.")
+    parser = argparse.ArgumentParser(description="Atualiza o gráfico de commits do README de perfil.")
     parser.add_argument("--user", default=os.environ.get("PROFILE_USER", "bielxdh3"))
     parser.add_argument("--svg", default="assets/commit-history.svg")
     parser.add_argument("--data", default="data/commit-history.json")
     args = parser.parse_args()
 
-    # O workflow usa somente github.token do repositório público de perfil.
-    # Não há fallback para PAT com acesso a repositórios privados.
-    token = os.environ.get("GITHUB_TOKEN")
-    if not token:
-        raise SystemExit("Defina GITHUB_TOKEN.")
+    private_token = os.environ.get("PROFILE_STATS_TOKEN", "").strip()
+    workflow_token = os.environ.get("GITHUB_TOKEN", "").strip()
+
+    include_private = bool(private_token)
+    if include_private:
+        validate_private_token(private_token, args.user)
+        token = private_token
+    else:
+        token = workflow_token
+        if not token:
+            raise SystemExit("Defina GITHUB_TOKEN ou PROFILE_STATS_TOKEN.")
 
     now = datetime.now(UTC).replace(microsecond=0)
     created_at = get_created_at(token, args.user)
@@ -313,13 +377,14 @@ def main() -> None:
     series = build_series(daily_counts)
 
     payload = {
-        "schema": 2,
+        "schema": 3,
         "user": args.user,
         "generated_at": iso_z(now),
-        "scope": "public commit contributions visible to the repository-scoped GitHub Actions token",
-        "public_only": True,
-        "first_public_commit_date": first_commit_day.isoformat(),
-        "total_public_commit_contributions": lifetime_total,
+        "scope": "public_and_private" if include_private else "public_only",
+        "includes_private_commits": include_private,
+        "private_repository_details_published": False,
+        "first_commit_date": first_commit_day.isoformat(),
+        "total_commit_contributions": lifetime_total,
         "series": series,
     }
 
@@ -328,10 +393,16 @@ def main() -> None:
     svg_path.parent.mkdir(parents=True, exist_ok=True)
     data_path.parent.mkdir(parents=True, exist_ok=True)
 
-    svg_path.write_text(render_svg(args.user, lifetime_total, series), encoding="utf-8")
+    svg_path.write_text(
+        render_svg(args.user, lifetime_total, series, include_private),
+        encoding="utf-8",
+    )
     data_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    print(f"Atualizado: {format_pt(lifetime_total)} commits públicos contabilizados pelo GitHub.")
+    scope_text = "públicos + privados" if include_private else "públicos"
+    print(
+        f"Atualizado: {format_pt(lifetime_total)} commits {scope_text} contabilizados pelo GitHub."
+    )
 
 
 if __name__ == "__main__":
