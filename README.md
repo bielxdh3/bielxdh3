@@ -126,6 +126,16 @@ Experiência 3D interativa do Sistema Solar para navegador, com exploração dos
 
 ---
 
+# 📈 Evolução dos commits
+
+<p align="center">
+  <img src="./assets/commit-history.svg" alt="Gráfico acumulado da evolução dos commits reconhecidos pelo GitHub" width="100%">
+</p>
+
+<sub>Atualizado automaticamente uma vez por dia. Os commits da atualização são feitos por <code>github-actions[bot]</code>, então não entram nas minhas contribuições pessoais.</sub>
+
+---
+
 # 🩵 Áreas que mais me interessam
 
 ```text
