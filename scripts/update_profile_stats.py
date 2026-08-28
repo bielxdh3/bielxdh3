@@ -83,16 +83,37 @@ def get_interval_total(token: str, login: str, start: datetime, end: datetime) -
     return int(data["user"]["contributionsCollection"]["totalCommitContributions"])
 
 
-def get_lifetime_total(token: str, login: str, created_at: datetime, now: datetime) -> int:
-    # GitHub limita contributionsCollection a janelas de no máximo um ano.
-    # Fatias de 180 dias também evitam ambiguidade em anos bissextos.
-    start = datetime.combine(created_at.date(), time.min, tzinfo=UTC)
-    total = 0
-    while start <= now:
-        end = min(start + timedelta(days=180) - timedelta(seconds=1), now)
-        total += get_interval_total(token, login, start, end)
-        start = end + timedelta(seconds=1)
-    return total
+def find_first_commit_day(token: str, login: str, created_at: datetime, now: datetime) -> date:
+    """Localiza o primeiro dia com commit público reconhecido pelo GitHub.
+
+    Primeiro percorre a vida da conta em blocos de até 180 dias. Quando encontra
+    o primeiro bloco com commits, faz uma busca binária para achar o primeiro dia
+    real. Assim o gráfico não começa na criação da conta nem em uma janela fixa.
+    """
+    cursor = datetime.combine(created_at.date(), time.min, tzinfo=UTC)
+
+    while cursor <= now:
+        interval_end = min(cursor + timedelta(days=180) - timedelta(seconds=1), now)
+        if get_interval_total(token, login, cursor, interval_end) > 0:
+            low = cursor.date()
+            high = interval_end.date()
+
+            while low < high:
+                midpoint = low + timedelta(days=(high - low).days // 2)
+                midpoint_end = min(
+                    datetime.combine(midpoint, time(23, 59, 59), tzinfo=UTC),
+                    now,
+                )
+                if get_interval_total(token, login, cursor, midpoint_end) > 0:
+                    high = midpoint
+                else:
+                    low = midpoint + timedelta(days=1)
+
+            return low
+
+        cursor = interval_end + timedelta(seconds=1)
+
+    return now.date()
 
 
 def get_daily_totals(token: str, login: str, start_day: date, end_day: date) -> dict[date, int]:
@@ -139,13 +160,10 @@ def format_pt(value: int) -> str:
     return f"{value:,}".replace(",", ".")
 
 
-def build_series(lifetime_total: int, daily_counts: dict[date, int]) -> list[dict[str, object]]:
-    ordered_days = sorted(daily_counts)
-    commits_in_window = sum(daily_counts.values())
-    running = max(0, lifetime_total - commits_in_window)
-
+def build_series(daily_counts: dict[date, int]) -> list[dict[str, object]]:
+    running = 0
     series: list[dict[str, object]] = []
-    for day in ordered_days:
+    for day in sorted(daily_counts):
         running += daily_counts[day]
         series.append(
             {
@@ -237,8 +255,8 @@ def render_svg(login: str, lifetime_total: int, series: list[dict[str, object]])
     last_date = series[-1]["date"] if series else ""
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320" role="img" aria-labelledby="title desc">
-  <title id="title">Evolução dos commits de {login}</title>
-  <desc id="desc">Gráfico acumulado dos commits que contam como contribuição no GitHub, de {first_date} até {last_date}. Total atual: {lifetime_total}.</desc>
+  <title id="title">Evolução dos commits públicos de {login}</title>
+  <desc id="desc">Gráfico acumulado somente dos commits públicos reconhecidos pelo GitHub, do primeiro commit público em {first_date} até {last_date}. Total atual: {lifetime_total}.</desc>
   <defs>
     <linearGradient id="lineGradient" x1="0" x2="1">
       <stop offset="0%" stop-color="#B8E6FF"/>
@@ -259,9 +277,9 @@ def render_svg(login: str, lifetime_total: int, series: list[dict[str, object]])
   </defs>
 
   <rect x="1" y="1" width="898" height="318" rx="18" fill="#0D1117" stroke="#30363D"/>
-  <text x="42" y="38" class="title">EVOLUÇÃO DOS COMMITS</text>
+  <text x="42" y="38" class="title">EVOLUÇÃO DOS COMMITS PÚBLICOS</text>
   <text x="858" y="38" text-anchor="end" class="value">{format_pt(lifetime_total)}</text>
-  <text x="42" y="60" class="subtitle">commits que contam como contribuição no GitHub · janela visual de 365 dias</text>
+  <text x="42" y="60" class="subtitle">somente commits públicos · desde o primeiro commit público reconhecido pelo GitHub</text>
   <text x="858" y="60" text-anchor="end" class="small">@{login}</text>
 
 {grid}
@@ -273,35 +291,35 @@ def render_svg(login: str, lifetime_total: int, series: list[dict[str, object]])
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Atualiza o gráfico de commits do README de perfil.")
+    parser = argparse.ArgumentParser(description="Atualiza o gráfico público de commits do README de perfil.")
     parser.add_argument("--user", default=os.environ.get("PROFILE_USER", "bielxdh3"))
-    parser.add_argument("--days", type=int, default=int(os.environ.get("PROFILE_HISTORY_DAYS", "365")))
     parser.add_argument("--svg", default="assets/commit-history.svg")
     parser.add_argument("--data", default="data/commit-history.json")
     args = parser.parse_args()
 
-    token = os.environ.get("PROFILE_STATS_TOKEN") or os.environ.get("GITHUB_TOKEN")
+    # O workflow usa somente github.token do repositório público de perfil.
+    # Não há fallback para PAT com acesso a repositórios privados.
+    token = os.environ.get("GITHUB_TOKEN")
     if not token:
-        raise SystemExit("Defina PROFILE_STATS_TOKEN ou GITHUB_TOKEN.")
+        raise SystemExit("Defina GITHUB_TOKEN.")
 
-    history_days = max(30, min(args.days, 365))
     now = datetime.now(UTC).replace(microsecond=0)
     created_at = get_created_at(token, args.user)
-    lifetime_total = get_lifetime_total(token, args.user, created_at, now)
+    first_commit_day = find_first_commit_day(token, args.user, created_at, now)
 
     today = now.date()
-    requested_start = today - timedelta(days=history_days - 1)
-    start_day = max(created_at.date(), requested_start)
-    daily_counts = get_daily_totals(token, args.user, start_day, today)
-    series = build_series(lifetime_total, daily_counts)
+    daily_counts = get_daily_totals(token, args.user, first_commit_day, today)
+    lifetime_total = sum(daily_counts.values())
+    series = build_series(daily_counts)
 
     payload = {
-        "schema": 1,
+        "schema": 2,
         "user": args.user,
         "generated_at": iso_z(now),
-        "scope": "commit contributions recognized by GitHub for the token's visible scope",
-        "history_days": history_days,
-        "total_commit_contributions": lifetime_total,
+        "scope": "public commit contributions visible to the repository-scoped GitHub Actions token",
+        "public_only": True,
+        "first_public_commit_date": first_commit_day.isoformat(),
+        "total_public_commit_contributions": lifetime_total,
         "series": series,
     }
 
@@ -313,7 +331,7 @@ def main() -> None:
     svg_path.write_text(render_svg(args.user, lifetime_total, series), encoding="utf-8")
     data_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    print(f"Atualizado: {format_pt(lifetime_total)} commits contabilizados pelo GitHub.")
+    print(f"Atualizado: {format_pt(lifetime_total)} commits públicos contabilizados pelo GitHub.")
 
 
 if __name__ == "__main__":
