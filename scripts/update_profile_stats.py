@@ -5,7 +5,7 @@ import argparse
 import json
 import math
 import os
-from datetime import date, datetime, timedelta, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
@@ -34,7 +34,7 @@ def api_json(token: str, url: str, *, data: dict | None = None):
             "Accept": "application/vnd.github+json",
             "Content-Type": "application/json",
             "X-GitHub-Api-Version": "2022-11-28",
-            "User-Agent": "bielxdh3-profile-commit-graph",
+            "User-Agent": "bielxdh3-profile-contribution-graph",
         },
     )
     try:
@@ -51,7 +51,9 @@ def graphql(token: str, query: str, variables: dict) -> dict:
     body, _ = api_json(token, GRAPHQL_URL, data={"query": query, "variables": variables})
     errors = body.get("errors") or []
     if errors:
-        raise RuntimeError(f"GitHub GraphQL retornou erros: {json.dumps(errors, ensure_ascii=False)}")
+        raise RuntimeError(
+            f"GitHub GraphQL retornou erros: {json.dumps(errors, ensure_ascii=False)}"
+        )
     data = body.get("data")
     if not isinstance(data, dict):
         raise RuntimeError("Resposta GraphQL do GitHub sem campo data válido.")
@@ -76,12 +78,23 @@ def validate_private_token(token: str, expected_login: str) -> None:
         )
 
 
-def contribution_years(token: str, login: str) -> list[int]:
+def fetch_profile_contributions(
+    token: str, login: str
+) -> tuple[dict[date, int], int, date, date]:
+    """Lê exatamente o calendário e o total exibidos pelo perfil do GitHub."""
     query = """
     query($login: String!) {
       user(login: $login) {
         contributionsCollection {
-          contributionYears
+          contributionCalendar {
+            totalContributions
+            weeks {
+              contributionDays {
+                date
+                contributionCount
+              }
+            }
+          }
         }
       }
     }
@@ -90,123 +103,45 @@ def contribution_years(token: str, login: str) -> list[int]:
     user = data.get("user")
     if not user:
         raise RuntimeError(f"Usuário @{login} não encontrado no GitHub.")
-    years = user["contributionsCollection"]["contributionYears"]
-    return sorted({int(year) for year in years})
 
-
-def quarter_ranges(year: int, now: datetime):
-    bounds = [
-        (datetime(year, 1, 1, tzinfo=UTC), datetime(year, 4, 1, tzinfo=UTC)),
-        (datetime(year, 4, 1, tzinfo=UTC), datetime(year, 7, 1, tzinfo=UTC)),
-        (datetime(year, 7, 1, tzinfo=UTC), datetime(year, 10, 1, tzinfo=UTC)),
-        (datetime(year, 10, 1, tzinfo=UTC), datetime(year + 1, 1, 1, tzinfo=UTC)),
-    ]
-    for start, next_start in bounds:
-        if start > now:
-            continue
-        end = min(next_start, now)
-        if end == next_start:
-            end = end.replace(microsecond=0) - timedelta(seconds=1)
-        if end >= start:
-            yield start, end
-
-
-def fetch_commit_contributions(
-    token: str,
-    login: str,
-    start: datetime,
-    end: datetime,
-) -> tuple[dict[date, int], int, int]:
-    """Usa a contabilização de commits do próprio perfil GitHub."""
-    query = """
-    query($login: String!, $from: DateTime!, $to: DateTime!) {
-      user(login: $login) {
-        contributionsCollection(from: $from, to: $to) {
-          totalCommitContributions
-          commitContributionsByRepository(maxRepositories: 100) {
-            contributions(first: 100) {
-              nodes {
-                occurredAt
-                commitCount
-              }
-              pageInfo {
-                hasNextPage
-              }
-            }
-          }
-        }
-      }
-    }
-    """
-    variables = {
-        "login": login,
-        "from": start.isoformat().replace("+00:00", "Z"),
-        "to": end.isoformat().replace("+00:00", "Z"),
-    }
-    data = graphql(token, query, variables)
-    user = data.get("user")
-    if not user:
-        raise RuntimeError(f"Usuário @{login} não encontrado no GitHub.")
-    collection = user["contributionsCollection"]
-    expected_total = int(collection["totalCommitContributions"])
+    calendar = user["contributionsCollection"]["contributionCalendar"]
+    expected_total = int(calendar["totalContributions"])
+    today = datetime.now(UTC).date()
     daily: dict[date, int] = {}
-    repository_count = 0
 
-    for group in collection["commitContributionsByRepository"]:
-        repository_count += 1
-        contributions = group["contributions"]
-        if contributions["pageInfo"]["hasNextPage"]:
-            raise RuntimeError(
-                "Mais de 100 dias de commits em um intervalo trimestral; "
-                "o gráfico recusou publicar dados incompletos."
-            )
-        for node in contributions["nodes"]:
-            day = datetime.fromisoformat(
-                node["occurredAt"].replace("Z", "+00:00")
-            ).astimezone(UTC).date()
-            count = int(node["commitCount"])
-            daily[day] = daily.get(day, 0) + count
+    for week in calendar["weeks"]:
+        for node in week["contributionDays"]:
+            day = date.fromisoformat(str(node["date"]))
+            if day > today:
+                continue
+            daily[day] = int(node["contributionCount"])
+
+    if not daily:
+        return {}, expected_total, today, today
 
     observed_total = sum(daily.values())
     if observed_total != expected_total:
         raise RuntimeError(
-            "A API resumida e os detalhes de commits do perfil divergiram: "
-            f"total={expected_total}, detalhes={observed_total}. "
+            "O total do calendário do perfil e a soma diária divergiram: "
+            f"total={expected_total}, dias={observed_total}. "
             "O gráfico foi interrompido para não publicar um número incorreto."
         )
 
-    return daily, expected_total, repository_count
+    return daily, expected_total, min(daily), max(daily)
 
 
-def scan_profile_commits(token: str, login: str) -> tuple[dict[date, int], int, int]:
-    """Coleta exatamente as contribuições de commit atribuídas pelo GitHub ao perfil."""
-    years = contribution_years(token, login)
-    now = datetime.now(UTC)
-    daily: dict[date, int] = {}
-    total = 0
-    repository_groups = 0
-
-    for year in years:
-        for start, end in quarter_ranges(year, now):
-            period_daily, period_total, period_repositories = fetch_commit_contributions(
-                token, login, start, end
-            )
-            total += period_total
-            repository_groups += period_repositories
-            for day, count in period_daily.items():
-                daily[day] = daily.get(day, 0) + count
-
-    if sum(daily.values()) != total:
-        raise RuntimeError("Falha interna ao consolidar os commits retornados pelo GitHub.")
-    return daily, len(years), repository_groups
-
-
-def fill_daily_series(daily_counts: dict[date, int]) -> list[dict[str, object]]:
+def fill_daily_series(
+    daily_counts: dict[date, int],
+) -> list[dict[str, object]]:
     if not daily_counts:
         return []
 
-    first_day = min(daily_counts)
-    last_day = datetime.now(UTC).date()
+    active_days = [day for day, count in daily_counts.items() if count > 0]
+    if not active_days:
+        return []
+
+    first_day = min(active_days)
+    last_day = max(daily_counts)
     current = first_day
     running = 0
     series: list[dict[str, object]] = []
@@ -217,11 +152,11 @@ def fill_daily_series(daily_counts: dict[date, int]) -> list[dict[str, object]]:
         series.append(
             {
                 "date": current.isoformat(),
-                "commits": count,
+                "contributions": count,
                 "total": running,
             }
         )
-        current += timedelta(days=1)
+        current = date.fromordinal(current.toordinal() + 1)
 
     return series
 
@@ -318,8 +253,8 @@ def render_svg(
     )
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320" role="img" aria-labelledby="title desc">
-  <title id="title">Evolução dos commits de {login}</title>
-  <desc id="desc">Commits atribuídos pelo próprio GitHub ao perfil, de {first_date} até {last_date}. Total atual: {total}. {private_note}.</desc>
+  <title id="title">Evolução das contribuições de {login}</title>
+  <desc id="desc">Mesma contabilização do calendário de contribuições do perfil GitHub, de {first_date} até {last_date}. Total atual: {total}. {private_note}.</desc>
   <defs>
     <linearGradient id="lineGradient" x1="0" x2="1">
       <stop offset="0%" stop-color="#B8E6FF"/>
@@ -340,9 +275,9 @@ def render_svg(
   </defs>
 
   <rect x="1" y="1" width="898" height="318" rx="18" fill="#0D1117" stroke="#30363D"/>
-  <text x="42" y="38" class="title">EVOLUÇÃO DOS COMMITS</text>
+  <text x="42" y="38" class="title">EVOLUÇÃO DAS CONTRIBUIÇÕES</text>
   <text x="858" y="38" text-anchor="end" class="value">{format_pt(total)}</text>
-  <text x="42" y="60" class="subtitle">contabilização do perfil GitHub · {private_note}</text>
+  <text x="42" y="60" class="subtitle">mesma contabilização do perfil GitHub · {private_note}</text>
   <text x="858" y="60" text-anchor="end" class="small">@{login}</text>
 
 {grid}
@@ -355,7 +290,7 @@ def render_svg(
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Atualiza o gráfico com commits contados pelo perfil GitHub."
+        description="Atualiza o gráfico com o mesmo total de contribuições exibido pelo perfil GitHub."
     )
     parser.add_argument("--user", default=os.environ.get("PROFILE_USER", "bielxdh3"))
     parser.add_argument("--svg", default="assets/commit-history.svg")
@@ -374,25 +309,31 @@ def main() -> None:
     else:
         raise SystemExit("Defina GITHUB_TOKEN ou PROFILE_STATS_TOKEN.")
 
-    daily_counts, years_scanned, repository_groups = scan_profile_commits(token, args.user)
+    daily_counts, github_total, window_start, window_end = fetch_profile_contributions(
+        token, args.user
+    )
     series = fill_daily_series(daily_counts)
-    total = sum(daily_counts.values())
+
+    if series and int(series[-1]["total"]) != github_total:
+        raise RuntimeError(
+            f"O acumulado final ({series[-1]['total']}) não corresponde ao total do perfil ({github_total})."
+        )
 
     payload = {
-        "schema": 5,
+        "schema": 6,
         "user": args.user,
         "generated_at": datetime.now(UTC)
         .replace(microsecond=0)
         .isoformat()
         .replace("+00:00", "Z"),
-        "scope": "github_profile_commit_contributions",
-        "includes_private_commits": include_private,
+        "scope": "github_profile_contribution_calendar",
+        "includes_private_contributions": include_private,
         "private_repository_details_published": False,
-        "counting_method": "GitHub GraphQL ContributionsCollection commit contributions",
-        "years_scanned": years_scanned,
-        "repository_groups_scanned": repository_groups,
-        "first_commit_date": series[0]["date"] if series else None,
-        "total_commits": total,
+        "counting_method": "GitHub GraphQL contributionCalendar.totalContributions",
+        "profile_window_start": window_start.isoformat(),
+        "profile_window_end": window_end.isoformat(),
+        "first_contribution_date": series[0]["date"] if series else None,
+        "total_contributions": github_total,
         "series": series,
     }
 
@@ -401,15 +342,15 @@ def main() -> None:
     svg_path.parent.mkdir(parents=True, exist_ok=True)
     data_path.parent.mkdir(parents=True, exist_ok=True)
     svg_path.write_text(
-        render_svg(args.user, total, series, include_private), encoding="utf-8"
+        render_svg(args.user, github_total, series, include_private), encoding="utf-8"
     )
     data_path.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
 
     print(
-        f"Atualizado: {format_pt(total)} commits contabilizados pelo perfil GitHub; "
-        f"{years_scanned} anos consultados."
+        f"Atualizado: {format_pt(github_total)} contribuições, "
+        "exatamente o total do calendário do perfil GitHub."
     )
 
 
