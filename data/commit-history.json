@@ -1,670 +1,1700 @@
 {
-  "schema": 5,
+  "schema": 6,
   "user": "bielxdh3",
-  "generated_at": "2026-08-31T15:58:24Z",
-  "scope": "github_profile_commit_contributions",
-  "includes_private_commits": true,
+  "generated_at": "2026-08-31T16:05:08Z",
+  "scope": "github_profile_contribution_calendar",
+  "includes_private_contributions": true,
   "private_repository_details_published": false,
-  "counting_method": "GitHub GraphQL ContributionsCollection commit contributions",
-  "years_scanned": 2,
-  "repository_groups_scanned": 14,
-  "first_commit_date": "2026-04-23",
-  "total_commits": 725,
+  "counting_method": "GitHub GraphQL contributionCalendar.totalContributions",
+  "profile_window_start": "2025-08-31",
+  "profile_window_end": "2026-08-31",
+  "first_contribution_date": "2025-09-29",
+  "total_contributions": 888,
   "series": [
     {
-      "date": "2026-04-23",
-      "commits": 1,
+      "date": "2025-09-29",
+      "contributions": 1,
       "total": 1
     },
     {
+      "date": "2025-09-30",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-01",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-02",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-03",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-04",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-05",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-06",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-07",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-08",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-09",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-10",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-11",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-12",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-13",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-14",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-15",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-16",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-17",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-18",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-19",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-20",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-21",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-22",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-23",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-24",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-25",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-26",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-27",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-28",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-29",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-30",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-10-31",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-01",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-02",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-03",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-04",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-05",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-06",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-07",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-08",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-09",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-10",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-11",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-12",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-13",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-14",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-15",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-16",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-17",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-18",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-19",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-20",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-21",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-22",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-23",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-24",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-25",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-26",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-27",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-28",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-29",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-11-30",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-01",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-02",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-03",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-04",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-05",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-06",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-07",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-08",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-09",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-10",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-11",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-12",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-13",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-14",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-15",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-16",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-17",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-18",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-19",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-20",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-21",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-22",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-23",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-24",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-25",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-26",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-27",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-28",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-29",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-30",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2025-12-31",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-01",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-02",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-03",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-04",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-05",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-06",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-07",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-08",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-09",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-10",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-11",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-12",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-13",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-14",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-15",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-16",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-17",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-18",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-19",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-20",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-21",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-22",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-23",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-24",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-25",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-26",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-27",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-28",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-29",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-30",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-01-31",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-01",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-02",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-03",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-04",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-05",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-06",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-07",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-08",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-09",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-10",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-11",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-12",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-13",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-14",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-15",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-16",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-17",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-18",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-19",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-20",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-21",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-22",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-23",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-24",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-25",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-26",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-27",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-02-28",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-01",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-02",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-03",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-04",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-05",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-06",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-07",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-08",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-09",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-10",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-11",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-12",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-13",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-14",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-15",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-16",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-17",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-18",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-19",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-20",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-21",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-22",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-23",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-24",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-25",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-26",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-27",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-28",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-29",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-30",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-03-31",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-01",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-02",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-03",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-04",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-05",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-06",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-07",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-08",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-09",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-10",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-11",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-12",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-13",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-14",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-15",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-16",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-17",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-18",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-19",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-20",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-21",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-22",
+      "contributions": 0,
+      "total": 1
+    },
+    {
+      "date": "2026-04-23",
+      "contributions": 2,
+      "total": 3
+    },
+    {
       "date": "2026-04-24",
-      "commits": 5,
-      "total": 6
+      "contributions": 5,
+      "total": 8
     },
     {
       "date": "2026-04-25",
-      "commits": 2,
-      "total": 8
+      "contributions": 2,
+      "total": 10
     },
     {
       "date": "2026-04-26",
-      "commits": 0,
-      "total": 8
+      "contributions": 0,
+      "total": 10
     },
     {
       "date": "2026-04-27",
-      "commits": 5,
-      "total": 13
+      "contributions": 5,
+      "total": 15
     },
     {
       "date": "2026-04-28",
-      "commits": 1,
-      "total": 14
+      "contributions": 1,
+      "total": 16
     },
     {
       "date": "2026-04-29",
-      "commits": 1,
-      "total": 15
+      "contributions": 1,
+      "total": 17
     },
     {
       "date": "2026-04-30",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-01",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-02",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-03",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-04",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-05",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-06",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-07",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-08",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-09",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-10",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-11",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-12",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-13",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-14",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-15",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-16",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-17",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-18",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-19",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-20",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-21",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-22",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-23",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-24",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-25",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-26",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-27",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-28",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-29",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-30",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-05-31",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-06-01",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-06-02",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-06-03",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-06-04",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-06-05",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-06-06",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-06-07",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-06-08",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-06-09",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-06-10",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-06-11",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-06-12",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-06-13",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-06-14",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-06-15",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-06-16",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-06-17",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-06-18",
-      "commits": 0,
-      "total": 15
+      "contributions": 0,
+      "total": 17
     },
     {
       "date": "2026-06-19",
-      "commits": 13,
-      "total": 28
+      "contributions": 14,
+      "total": 31
     },
     {
       "date": "2026-06-20",
-      "commits": 9,
-      "total": 37
-    },
-    {
-      "date": "2026-06-21",
-      "commits": 3,
+      "contributions": 9,
       "total": 40
     },
     {
+      "date": "2026-06-21",
+      "contributions": 3,
+      "total": 43
+    },
+    {
       "date": "2026-06-22",
-      "commits": 16,
-      "total": 56
+      "contributions": 17,
+      "total": 60
     },
     {
       "date": "2026-06-23",
-      "commits": 11,
-      "total": 67
+      "contributions": 11,
+      "total": 71
     },
     {
       "date": "2026-06-24",
-      "commits": 17,
-      "total": 84
+      "contributions": 17,
+      "total": 88
     },
     {
       "date": "2026-06-25",
-      "commits": 20,
-      "total": 104
-    },
-    {
-      "date": "2026-06-26",
-      "commits": 4,
+      "contributions": 20,
       "total": 108
     },
     {
+      "date": "2026-06-26",
+      "contributions": 4,
+      "total": 112
+    },
+    {
       "date": "2026-06-27",
-      "commits": 1,
-      "total": 109
+      "contributions": 1,
+      "total": 113
     },
     {
       "date": "2026-06-28",
-      "commits": 1,
-      "total": 110
+      "contributions": 1,
+      "total": 114
     },
     {
       "date": "2026-06-29",
-      "commits": 0,
-      "total": 110
+      "contributions": 0,
+      "total": 114
     },
     {
       "date": "2026-06-30",
-      "commits": 0,
-      "total": 110
+      "contributions": 0,
+      "total": 114
     },
     {
       "date": "2026-07-01",
-      "commits": 0,
-      "total": 110
+      "contributions": 0,
+      "total": 114
     },
     {
       "date": "2026-07-02",
-      "commits": 0,
-      "total": 110
+      "contributions": 0,
+      "total": 114
     },
     {
       "date": "2026-07-03",
-      "commits": 0,
-      "total": 110
+      "contributions": 0,
+      "total": 114
     },
     {
       "date": "2026-07-04",
-      "commits": 0,
-      "total": 110
+      "contributions": 0,
+      "total": 114
     },
     {
       "date": "2026-07-05",
-      "commits": 0,
-      "total": 110
+      "contributions": 0,
+      "total": 114
     },
     {
       "date": "2026-07-06",
-      "commits": 0,
-      "total": 110
+      "contributions": 0,
+      "total": 114
     },
     {
       "date": "2026-07-07",
-      "commits": 0,
-      "total": 110
+      "contributions": 0,
+      "total": 114
     },
     {
       "date": "2026-07-08",
-      "commits": 0,
-      "total": 110
+      "contributions": 0,
+      "total": 114
     },
     {
       "date": "2026-07-09",
-      "commits": 0,
-      "total": 110
+      "contributions": 0,
+      "total": 114
     },
     {
       "date": "2026-07-10",
-      "commits": 3,
-      "total": 113
+      "contributions": 4,
+      "total": 118
     },
     {
       "date": "2026-07-11",
-      "commits": 0,
-      "total": 113
+      "contributions": 0,
+      "total": 118
     },
     {
       "date": "2026-07-12",
-      "commits": 0,
-      "total": 113
+      "contributions": 0,
+      "total": 118
     },
     {
       "date": "2026-07-13",
-      "commits": 0,
-      "total": 113
+      "contributions": 0,
+      "total": 118
     },
     {
       "date": "2026-07-14",
-      "commits": 38,
-      "total": 151
+      "contributions": 38,
+      "total": 156
     },
     {
       "date": "2026-07-15",
-      "commits": 4,
-      "total": 155
+      "contributions": 4,
+      "total": 160
     },
     {
       "date": "2026-07-16",
-      "commits": 6,
-      "total": 161
+      "contributions": 6,
+      "total": 166
     },
     {
       "date": "2026-07-17",
-      "commits": 1,
-      "total": 162
+      "contributions": 1,
+      "total": 167
     },
     {
       "date": "2026-07-18",
-      "commits": 0,
-      "total": 162
+      "contributions": 0,
+      "total": 167
     },
     {
       "date": "2026-07-19",
-      "commits": 0,
-      "total": 162
+      "contributions": 0,
+      "total": 167
     },
     {
       "date": "2026-07-20",
-      "commits": 20,
-      "total": 182
+      "contributions": 21,
+      "total": 188
     },
     {
       "date": "2026-07-21",
-      "commits": 10,
-      "total": 192
+      "contributions": 10,
+      "total": 198
     },
     {
       "date": "2026-07-22",
-      "commits": 4,
-      "total": 196
+      "contributions": 4,
+      "total": 202
     },
     {
       "date": "2026-07-23",
-      "commits": 0,
-      "total": 196
+      "contributions": 0,
+      "total": 202
     },
     {
       "date": "2026-07-24",
-      "commits": 1,
-      "total": 197
+      "contributions": 1,
+      "total": 203
     },
     {
       "date": "2026-07-25",
-      "commits": 43,
-      "total": 240
+      "contributions": 60,
+      "total": 263
     },
     {
       "date": "2026-07-26",
-      "commits": 14,
-      "total": 254
+      "contributions": 14,
+      "total": 277
     },
     {
       "date": "2026-07-27",
-      "commits": 3,
-      "total": 257
+      "contributions": 3,
+      "total": 280
     },
     {
       "date": "2026-07-28",
-      "commits": 2,
-      "total": 259
+      "contributions": 2,
+      "total": 282
     },
     {
       "date": "2026-07-29",
-      "commits": 6,
-      "total": 265
+      "contributions": 7,
+      "total": 289
     },
     {
       "date": "2026-07-30",
-      "commits": 9,
-      "total": 274
+      "contributions": 10,
+      "total": 299
     },
     {
       "date": "2026-07-31",
-      "commits": 23,
-      "total": 297
+      "contributions": 37,
+      "total": 336
     },
     {
       "date": "2026-08-01",
-      "commits": 50,
-      "total": 347
+      "contributions": 67,
+      "total": 403
     },
     {
       "date": "2026-08-02",
-      "commits": 47,
-      "total": 394
+      "contributions": 55,
+      "total": 458
     },
     {
       "date": "2026-08-03",
-      "commits": 12,
-      "total": 406
+      "contributions": 13,
+      "total": 471
     },
     {
       "date": "2026-08-04",
-      "commits": 8,
-      "total": 414
-    },
-    {
-      "date": "2026-08-05",
-      "commits": 8,
-      "total": 422
-    },
-    {
-      "date": "2026-08-06",
-      "commits": 12,
-      "total": 434
-    },
-    {
-      "date": "2026-08-07",
-      "commits": 0,
-      "total": 434
-    },
-    {
-      "date": "2026-08-08",
-      "commits": 11,
-      "total": 445
-    },
-    {
-      "date": "2026-08-09",
-      "commits": 0,
-      "total": 445
-    },
-    {
-      "date": "2026-08-10",
-      "commits": 2,
-      "total": 447
-    },
-    {
-      "date": "2026-08-11",
-      "commits": 8,
-      "total": 455
-    },
-    {
-      "date": "2026-08-12",
-      "commits": 0,
-      "total": 455
-    },
-    {
-      "date": "2026-08-13",
-      "commits": 11,
-      "total": 466
-    },
-    {
-      "date": "2026-08-14",
-      "commits": 13,
+      "contributions": 8,
       "total": 479
     },
     {
+      "date": "2026-08-05",
+      "contributions": 10,
+      "total": 489
+    },
+    {
+      "date": "2026-08-06",
+      "contributions": 19,
+      "total": 508
+    },
+    {
+      "date": "2026-08-07",
+      "contributions": 0,
+      "total": 508
+    },
+    {
+      "date": "2026-08-08",
+      "contributions": 14,
+      "total": 522
+    },
+    {
+      "date": "2026-08-09",
+      "contributions": 0,
+      "total": 522
+    },
+    {
+      "date": "2026-08-10",
+      "contributions": 3,
+      "total": 525
+    },
+    {
+      "date": "2026-08-11",
+      "contributions": 10,
+      "total": 535
+    },
+    {
+      "date": "2026-08-12",
+      "contributions": 0,
+      "total": 535
+    },
+    {
+      "date": "2026-08-13",
+      "contributions": 18,
+      "total": 553
+    },
+    {
+      "date": "2026-08-14",
+      "contributions": 13,
+      "total": 566
+    },
+    {
       "date": "2026-08-15",
-      "commits": 4,
-      "total": 483
+      "contributions": 5,
+      "total": 571
     },
     {
       "date": "2026-08-16",
-      "commits": 27,
-      "total": 510
+      "contributions": 34,
+      "total": 605
     },
     {
       "date": "2026-08-17",
-      "commits": 2,
-      "total": 512
+      "contributions": 5,
+      "total": 610
     },
     {
       "date": "2026-08-18",
-      "commits": 1,
-      "total": 513
+      "contributions": 1,
+      "total": 611
     },
     {
       "date": "2026-08-19",
-      "commits": 5,
-      "total": 518
+      "contributions": 7,
+      "total": 618
     },
     {
       "date": "2026-08-20",
-      "commits": 69,
-      "total": 587
-    },
-    {
-      "date": "2026-08-21",
-      "commits": 13,
-      "total": 600
-    },
-    {
-      "date": "2026-08-22",
-      "commits": 49,
-      "total": 649
-    },
-    {
-      "date": "2026-08-23",
-      "commits": 6,
-      "total": 655
-    },
-    {
-      "date": "2026-08-24",
-      "commits": 4,
-      "total": 659
-    },
-    {
-      "date": "2026-08-25",
-      "commits": 0,
-      "total": 659
-    },
-    {
-      "date": "2026-08-26",
-      "commits": 0,
-      "total": 659
-    },
-    {
-      "date": "2026-08-27",
-      "commits": 20,
-      "total": 679
-    },
-    {
-      "date": "2026-08-28",
-      "commits": 32,
+      "contributions": 93,
       "total": 711
     },
     {
+      "date": "2026-08-21",
+      "contributions": 19,
+      "total": 730
+    },
+    {
+      "date": "2026-08-22",
+      "contributions": 54,
+      "total": 784
+    },
+    {
+      "date": "2026-08-23",
+      "contributions": 7,
+      "total": 791
+    },
+    {
+      "date": "2026-08-24",
+      "contributions": 5,
+      "total": 796
+    },
+    {
+      "date": "2026-08-25",
+      "contributions": 0,
+      "total": 796
+    },
+    {
+      "date": "2026-08-26",
+      "contributions": 0,
+      "total": 796
+    },
+    {
+      "date": "2026-08-27",
+      "contributions": 24,
+      "total": 820
+    },
+    {
+      "date": "2026-08-28",
+      "contributions": 43,
+      "total": 863
+    },
+    {
       "date": "2026-08-29",
-      "commits": 4,
-      "total": 715
+      "contributions": 6,
+      "total": 869
     },
     {
       "date": "2026-08-30",
-      "commits": 7,
-      "total": 722
+      "contributions": 9,
+      "total": 878
     },
     {
       "date": "2026-08-31",
-      "commits": 3,
-      "total": 725
+      "contributions": 10,
+      "total": 888
     }
   ]
 }
