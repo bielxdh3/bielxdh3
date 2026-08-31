@@ -100,6 +100,18 @@ Cofre local para preservar, organizar, verificar e consultar backups do Gmail e 
 
 ---
 
+## 🎙 [V-Lab](https://github.com/bielxdh3/V-Lab)
+
+### Voice Lab
+
+Laboratório local-first para clonagem de voz, preparação de datasets, fine-tuning e experimentação com múltiplas vozes usando Qwen3-TTS.
+
+<p>
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/Qwen3--TTS-6C5CE7?style=flat-square"> <img src="https://img.shields.io/badge/Gradio-FF7C00?style=flat-square&logo=gradio&logoColor=white"> <img src="https://img.shields.io/badge/CUDA-76B900?style=flat-square&logo=nvidia&logoColor=white">
+</p>
+
+---
+
 ## ⚙️ [Dual Codex](https://github.com/bielxdh3/Dual-Codex)
 
 ### Orquestração local de múltiplos Codex
