@@ -14,7 +14,7 @@ API_URL = "https://api.github.com"
 GRAPHQL_URL = f"{API_URL}/graphql"
 USER_API_URL = f"{API_URL}/user"
 UTC = timezone.utc
-START_DATE = date(2026, 1, 1)
+COUNTING_START = date(2026, 1, 1)
 
 
 def clean_token(value: str) -> str:
@@ -114,23 +114,21 @@ def fetch_contribution_window(
 
     calendar = user["contributionsCollection"]["contributionCalendar"]
     expected_total = int(calendar["totalContributions"])
-    daily: dict[date, int] = {}
     start_day = start.date()
     end_day = end.date()
+    daily: dict[date, int] = {}
 
     for week in calendar["weeks"]:
         for node in week["contributionDays"]:
             day = date.fromisoformat(str(node["date"]))
-            if day < start_day or day > end_day:
-                continue
-            daily[day] = int(node["contributionCount"])
+            if start_day <= day <= end_day:
+                daily[day] = int(node["contributionCount"])
 
     observed_total = sum(daily.values())
     if observed_total != expected_total:
         raise RuntimeError(
             "O total do calendário do perfil e a soma diária divergiram: "
-            f"total={expected_total}, dias={observed_total}. "
-            "O gráfico foi interrompido para não publicar um número incorreto."
+            f"total={expected_total}, dias={observed_total}."
         )
 
     return daily, expected_total
@@ -138,48 +136,42 @@ def fetch_contribution_window(
 
 def fetch_profile_contributions_since_2026(
     token: str, login: str
-) -> tuple[dict[date, int], int, date, date]:
-    """Conta somente contribuições do perfil a partir de 01/01/2026."""
+) -> tuple[dict[date, int], int, date]:
     now = datetime.now(UTC)
     today = now.date()
-    if today < START_DATE:
-        return {}, 0, START_DATE, today
+    if today < COUNTING_START:
+        return {}, 0, today
 
     daily: dict[date, int] = {}
     total = 0
 
-    for year in range(START_DATE.year, today.year + 1):
-        start_day = START_DATE if year == START_DATE.year else date(year, 1, 1)
-        start = datetime(
-            start_day.year, start_day.month, start_day.day, tzinfo=UTC
-        )
+    for year in range(COUNTING_START.year, today.year + 1):
+        start_day = COUNTING_START if year == COUNTING_START.year else date(year, 1, 1)
+        start = datetime(start_day.year, start_day.month, start_day.day, tzinfo=UTC)
+        end = now if year == today.year else datetime(year, 12, 31, 23, 59, 59, tzinfo=UTC)
 
-        if year == today.year:
-            end = now
-        else:
-            end = datetime(year, 12, 31, 23, 59, 59, tzinfo=UTC)
-
-        period_daily, period_total = fetch_contribution_window(
-            token, login, start, end
-        )
+        period_daily, period_total = fetch_contribution_window(token, login, start, end)
         total += period_total
         daily.update(period_daily)
 
     if sum(daily.values()) != total:
-        raise RuntimeError(
-            "Falha interna ao consolidar as contribuições desde 2026."
-        )
+        raise RuntimeError("Falha interna ao consolidar as contribuições desde 2026.")
 
-    return daily, total, START_DATE, today
+    return daily, total, today
 
 
 def fill_daily_series(
-    daily_counts: dict[date, int], start_day: date, last_day: date
-) -> list[dict[str, object]]:
-    if last_day < start_day:
-        return []
+    daily_counts: dict[date, int], last_day: date
+) -> tuple[list[dict[str, object]], date | None]:
+    active_days = sorted(
+        day for day, count in daily_counts.items()
+        if day >= COUNTING_START and count > 0
+    )
+    if not active_days:
+        return [], None
 
-    current = start_day
+    first_day = active_days[0]
+    current = first_day
     running = 0
     series: list[dict[str, object]] = []
 
@@ -195,7 +187,7 @@ def fill_daily_series(
         )
         current = date.fromordinal(current.toordinal() + 1)
 
-    return series
+    return series, first_day
 
 
 def format_pt(value: int) -> str:
@@ -283,6 +275,7 @@ def render_svg(
 
     first_date = series[0]["date"] if series else ""
     last_date = series[-1]["date"] if series else ""
+    first_label = date.fromisoformat(str(first_date)).strftime("%d/%m/%Y") if first_date else ""
     private_note = (
         "repositórios privados permanecem anônimos"
         if include_private
@@ -291,7 +284,7 @@ def render_svg(
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320" role="img" aria-labelledby="title desc">
   <title id="title">Evolução das contribuições de {login}</title>
-  <desc id="desc">Contribuições contabilizadas pelo perfil GitHub desde {first_date} até {last_date}. Total desde 2026: {total}. {private_note}.</desc>
+  <desc id="desc">Contribuições contabilizadas pelo perfil GitHub do primeiro registro de 2026, em {first_date}, até {last_date}. Total: {total}. {private_note}.</desc>
   <defs>
     <linearGradient id="lineGradient" x1="0" x2="1">
       <stop offset="0%" stop-color="#B8E6FF"/>
@@ -314,7 +307,7 @@ def render_svg(
   <rect x="1" y="1" width="898" height="318" rx="18" fill="#0D1117" stroke="#30363D"/>
   <text x="42" y="38" class="title">EVOLUÇÃO DAS CONTRIBUIÇÕES</text>
   <text x="858" y="38" text-anchor="end" class="value">{format_pt(total)}</text>
-  <text x="42" y="60" class="subtitle">desde 01/01/2026 · {private_note}</text>
+  <text x="42" y="60" class="subtitle">desde {first_label} · {private_note}</text>
   <text x="858" y="60" text-anchor="end" class="small">@{login}</text>
 
 {grid}
@@ -327,7 +320,7 @@ def render_svg(
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Atualiza o gráfico de contribuições do perfil GitHub desde 2026."
+        description="Atualiza o gráfico de contribuições a partir da primeira contribuição de 2026."
     )
     parser.add_argument("--user", default=os.environ.get("PROFILE_USER", "bielxdh3"))
     parser.add_argument("--svg", default="assets/commit-history.svg")
@@ -346,10 +339,10 @@ def main() -> None:
     else:
         raise SystemExit("Defina GITHUB_TOKEN ou PROFILE_STATS_TOKEN.")
 
-    daily_counts, github_total, window_start, window_end = (
-        fetch_profile_contributions_since_2026(token, args.user)
+    daily_counts, github_total, window_end = fetch_profile_contributions_since_2026(
+        token, args.user
     )
-    series = fill_daily_series(daily_counts, window_start, window_end)
+    series, first_day = fill_daily_series(daily_counts, window_end)
 
     if series and int(series[-1]["total"]) != github_total:
         raise RuntimeError(
@@ -357,26 +350,20 @@ def main() -> None:
         )
 
     payload = {
-        "schema": 7,
+        "schema": 8,
         "user": args.user,
         "generated_at": datetime.now(UTC)
         .replace(microsecond=0)
         .isoformat()
         .replace("+00:00", "Z"),
-        "scope": "github_profile_contributions_since_2026",
+        "scope": "github_profile_contributions_from_first_2026_activity",
         "includes_private_contributions": include_private,
         "private_repository_details_published": False,
         "counting_method": "GitHub GraphQL contributionCalendar.totalContributions by yearly windows",
-        "profile_window_start": window_start.isoformat(),
-        "profile_window_end": window_end.isoformat(),
-        "first_contribution_date": next(
-            (
-                item["date"]
-                for item in series
-                if int(item["contributions"]) > 0
-            ),
-            None,
-        ),
+        "counting_window_start": COUNTING_START.isoformat(),
+        "graph_window_start": first_day.isoformat() if first_day else None,
+        "graph_window_end": window_end.isoformat(),
+        "first_contribution_date": first_day.isoformat() if first_day else None,
         "total_contributions": github_total,
         "series": series,
     }
@@ -392,8 +379,9 @@ def main() -> None:
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
 
+    first_text = first_day.strftime("%d/%m/%Y") if first_day else "nenhuma contribuição"
     print(
-        f"Atualizado: {format_pt(github_total)} contribuições desde 01/01/2026."
+        f"Atualizado: {format_pt(github_total)} contribuições; gráfico iniciado em {first_text}."
     )
 
 
