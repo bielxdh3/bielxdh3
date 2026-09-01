@@ -1,11 +1,11 @@
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:B8E6FF,52:9ED8FA,100:C8B6FF&height=190&section=header&text=Biel&fontSize=58&fontColor=ffffff&animation=fadeIn&fontAlignY=36"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:B8E6FF,52:9ED8FA,100:C8F7D4&height=190&section=header&text=Biel&fontSize=58&fontColor=ffffff&animation=fadeIn&fontAlignY=36"/>
 
 ### Construindo IA local, software experimental e ferramentas que eu gostaria que existissem.
 
 <p>
-<img src="https://img.shields.io/badge/IA%20Local-B8E6FF?style=for-the-badge&labelColor=B8E6FF&color=B8E6FF"> <img src="https://img.shields.io/badge/Self--hosted-9ED8FA?style=for-the-badge&labelColor=9ED8FA&color=9ED8FA"> <img src="https://img.shields.io/badge/Software-C8B6FF?style=for-the-badge&labelColor=C8B6FF&color=C8B6FF"> <img src="https://img.shields.io/badge/Experimentos-BFA7F2?style=for-the-badge&labelColor=BFA7F2&color=BFA7F2">
+<img src="https://img.shields.io/badge/IA%20Local-B8E6FF?style=for-the-badge&labelColor=B8E6FF&color=B8E6FF"> <img src="https://img.shields.io/badge/Self--hosted-9ED8FA?style=for-the-badge&labelColor=9ED8FA&color=9ED8FA"> <img src="https://img.shields.io/badge/Software-C8F7D4?style=for-the-badge&labelColor=C8F7D4&color=C8F7D4"> <img src="https://img.shields.io/badge/Experimentos-AEEBC0?style=for-the-badge&labelColor=AEEBC0&color=AEEBC0">
 </p>
 
 <p>
@@ -45,7 +45,7 @@ O **BielOS** conecta diferentes ideias de software, IA, automação e infraestru
 É onde exploro como ferramentas independentes, agentes, serviços e componentes locais podem trabalhar juntos sem transformar tudo em uma única aplicação monolítica.
 
 <p>
-<img src="https://img.shields.io/badge/STATUS-DESENVOLVIMENTO%20PRIVADO-B8E6FF?style=for-the-badge"> <img src="https://img.shields.io/badge/PROJETO-PRINCIPAL-C8B6FF?style=for-the-badge">
+<img src="https://img.shields.io/badge/STATUS-DESENVOLVIMENTO%20PRIVADO-B8E6FF?style=for-the-badge"> <img src="https://img.shields.io/badge/PROJETO-PRINCIPAL-C8F7D4?style=for-the-badge">
 </p>
 
 ---
@@ -80,7 +80,7 @@ Workspace desktop para criar benchmarks, executar modelos locais e preservar evi
 
 ### Armazenamento e sincronização self-hosted
 
-Sistema para gerenciamento de arquivos em rede privada com usuários, permissões, versões, compartilhamento, backups, sincronização e integrações de armazenamento.
+Sistema para gerenciamento de arquivos em rede privada com usuários, permissões, versões, compartilhamentos, backups, sincronização e integrações de armazenamento.
 
 <p>
 <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Self--Hosted-B8E6FF?style=flat-square">
@@ -95,7 +95,7 @@ Sistema para gerenciamento de arquivos em rede privada com usuários, permissõe
 Cofre local para preservar, organizar, verificar e consultar backups do Gmail e arquivos exportados pelo Google Takeout.
 
 <p>
-<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Gmail%20API-EA4335?style=flat-square&logo=gmail&logoColor=white"> <img src="https://img.shields.io/badge/Google%20Takeout-C8B6FF?style=flat-square">
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Gmail%20API-EA4335?style=flat-square&logo=gmail&logoColor=white"> <img src="https://img.shields.io/badge/Google%20Takeout-C8F7D4?style=flat-square">
 </p>
 
 ---
@@ -119,7 +119,7 @@ Laboratório local-first para clonagem de voz, preparação de datasets, fine-tu
 Ferramenta para coordenar contas Codex isoladas em diferentes funções, como Architect, Executor e Reviewer, mantendo identidades, permissões e contextos separados.
 
 <p>
-<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/Codex-C8B6FF?style=flat-square"> <img src="https://img.shields.io/badge/Local%20Tooling-B8E6FF?style=flat-square">
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/Codex-C8F7D4?style=flat-square"> <img src="https://img.shields.io/badge/Local%20Tooling-B8E6FF?style=flat-square">
 </p>
 
 ---
@@ -164,7 +164,7 @@ Muitos começam como experimentos pequenos e vão crescendo até virar software 
 
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:C8B6FF,48:B8E6FF,100:9ED8FA&height=110&section=footer"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:C8F7D4,48:B8E6FF,100:9ED8FA&height=110&section=footer"/>
 
 ### Construindo, testando e descobrindo até onde dá para levar uma ideia.
 
