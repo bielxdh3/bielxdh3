@@ -80,7 +80,7 @@ Workspace desktop para criar benchmarks, executar modelos locais e preservar evi
 
 ### Armazenamento e sincronização self-hosted
 
-Sistema para gerenciamento de arquivos em rede privada com usuários, permissões, versões, compartilhamentos, backups, sincronização e integrações de armazenamento.
+Sistema para gerenciamento de arquivos em rede privada com usuários, permissões, versões, compartilhamento, backups, sincronização e integrações de armazenamento.
 
 <p>
 <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Self--Hosted-B8E6FF?style=flat-square">
