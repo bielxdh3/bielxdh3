@@ -76,6 +76,20 @@ Workspace desktop para criar benchmarks, executar modelos locais e preservar evi
 
 ---
 
+## 🌌 [Frontiers GPTs](https://github.com/bielxdh3/Frontiers-GPT-s)
+
+### Benchmarks auditáveis de modelos de fronteira
+
+Repositório unificado para preservar **prompts exatos, snapshots completos, evidências, scorecards e comparações reproduzíveis** entre modelos frontier.
+
+O primeiro benchmark reúne versões completas de um observatório interativo do Sistema Solar, incluindo a comparação direta entre **GPT-5.6 Sun Max** e **GPT-6 Astra Max** sob o mesmo prompt, além da primeira versão histórica do Sun.
+
+<p>
+<img src="https://img.shields.io/badge/Benchmark-Frontier%20Models-7C3AED?style=flat-square"> <img src="https://img.shields.io/badge/GPT--5.6-Sun%20Max-F59E0B?style=flat-square"> <img src="https://img.shields.io/badge/GPT--6-Astra%20Max-A78BFA?style=flat-square"> <img src="https://img.shields.io/badge/Reproducible-Archive-B8E6FF?style=flat-square">
+</p>
+
+---
+
 ## 🗄️ [root.ark](https://github.com/bielxdh3/root.ark)
 
 ### Armazenamento e sincronização self-hosted
@@ -132,18 +146,6 @@ Aplicação pessoal para gestão financeira, despesas, entradas, cartões, cofri
 
 <p>
 <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white">
-</p>
-
-<br>
-
-## ☀️ [GPT-5.6 SUN MAX — Solar System](https://github.com/bielxdh3/GPT5.6-SUN-MAX-SOLAR-SYSTEM)
-
-Experiência 3D interativa do Sistema Solar para navegador, com exploração dos corpos celestes, controle da simulação e visualizações comparativas.
-
-**Benchmark do GPT-5.6 Sol no modo max**
-
-<p>
-<img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/Three.js-000000?style=flat-square&logo=three.js&logoColor=white">
 </p>
 
 ---
