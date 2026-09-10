@@ -5,7 +5,7 @@
 ### Construindo IA local, software experimental e ferramentas que eu gostaria que existissem.
 
 <p>
-<img src="https://img.shields.io/badge/IA%20Local-B8E6FF?style=for-the-badge&labelColor=B8E6FF&color=B8E6FF"> <img src="https://img.shields.io/badge/Self--hosted-9ED8FA?style=for-the-badge&labelColor=9ED8FA&color=9ED8FA"> <img src="https://img.shields.io/badge/Software-C8F7D4?style=for-the-badge&labelColor=C8F7D4&color=C8F7D4"> <img src="https://img.shields.io/badge/Experimentos-AEEBC0?style=for-the-badge&labelColor=AEEBC0&color=AEEBC0">
+<img src="https://img.shields.io/badge/IA%20Local-B8E6FF?style=for-the-badge&labelColor=B8E6FF&color=B8E6FF"> <img src="https://img.shields.io/badge/Self--hosted-9ED8FA?style=for-the-badge&labelColor=9ED8FA&color=9ED8FA"> <img src="https://img.shields.io/badge/Experimentos-AEEBC0?style=for-the-badge&labelColor=AEEBC0&color=AEEBC0">
 </p>
 
 <p>
