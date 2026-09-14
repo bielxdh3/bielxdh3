@@ -1,7 +1,3 @@
-<div align="center">
-
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:B8E6FF,52:9ED8FA,100:C8F7D4&height=190&section=header&text=Biel&fontSize=58&fontColor=ffffff&animation=fadeIn&fontAlignY=36"/>
-
 ### Construindo IA local, software experimental e ferramentas que eu gostaria que existissem.
 
 <p>
