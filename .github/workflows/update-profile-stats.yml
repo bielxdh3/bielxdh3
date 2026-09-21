@@ -5,8 +5,11 @@ on:
   schedule:
     - cron: "17 6 * * *"
   push:
+    branches:
+      - main
     paths:
       - "scripts/update_profile_stats.py"
+      - "scripts/render_commit_history_gif.py"
       - ".github/workflows/update-profile-stats.yml"
 
 permissions:
@@ -31,6 +34,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install GIF renderer
+        run: python -m pip install --disable-pip-version-check --no-cache-dir pillow==11.3.0
+
       - name: Generate commit history
         env:
           # O valor bruto fica somente no ambiente do runner e nunca é impresso.
@@ -43,11 +49,12 @@ jobs:
         run: |
           export PROFILE_STATS_TOKEN="$(printf '%s' "$RAW_PROFILE_STATS_TOKEN" | tr -d '[:space:]')"
           python scripts/update_profile_stats.py
+          python scripts/render_commit_history_gif.py
 
       - name: Commit generated data as bot
         shell: bash
         run: |
-          git add assets/commit-history.svg data/commit-history.json
+          git add assets/commit-history.svg assets/commit-history.gif data/commit-history.json
 
           if git diff --cached --quiet; then
             echo "No generated changes to commit."
