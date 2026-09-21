@@ -306,9 +306,9 @@ def render_svg(
 
   <rect x="1" y="1" width="898" height="318" rx="18" fill="#0D1117" stroke="#30363D"/>
   <text x="42" y="38" class="title">EVOLUÇÃO DAS CONTRIBUIÇÕES</text>
-  <text x="858" y="38" text-anchor="end" class="value">{format_pt(total)}</text>
+  <text x="780" y="38" text-anchor="end" class="value">{format_pt(total)}</text>
   <text x="42" y="60" class="subtitle">desde {first_label} · {private_note}</text>
-  <text x="858" y="60" text-anchor="end" class="small">@{login}</text>
+  <text x="780" y="60" text-anchor="end" class="small">@{login}</text>
 
 {grid}
   <line x1="{left}" y1="{top + plot_h}" x2="{left + plot_w}" y2="{top + plot_h}" stroke="#3A4550" stroke-width="1.2"/>

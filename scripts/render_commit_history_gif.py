@@ -129,8 +129,8 @@ def render_frame(payload: dict, progress: float) -> Image.Image:
         font=FONT_SUB,
         fill=AXIS,
     )
-    text_right(draw, (858, 18), "0", FONT_VALUE, CYAN)
-    text_right(draw, (858, 49), f"@{login}", FONT_SMALL, AXIS)
+    text_right(draw, (780, 18), "0", FONT_VALUE, CYAN)
+    text_right(draw, (780, 49), f"@{login}", FONT_SMALL, AXIS)
 
     for i in range(5):
         ratio = i / 4
@@ -215,8 +215,8 @@ def render_frame(payload: dict, progress: float) -> Image.Image:
             width=3,
         )
 
-    draw.rectangle((700, 14, 860, 44), fill=BG)
-    text_right(draw, (858, 18), format_pt(round(current_total)), FONT_VALUE, CYAN)
+    draw.rectangle((620, 14, 782, 44), fill=BG)
+    text_right(draw, (780, 18), format_pt(round(current_total)), FONT_VALUE, CYAN)
     return image
 
 
