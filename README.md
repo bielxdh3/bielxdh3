@@ -3,11 +3,11 @@
 ### Construindo IA local, software experimental e ferramentas que eu gostaria que existissem.
 
 <p>
-<img src="https://img.shields.io/badge/IA%20Local-B8E6FF?style=for-the-badge&labelColor=B8E6FF&color=B8E6FF"> <img src="https://img.shields.io/badge/Self--hosted-9ED8FA?style=for-the-badge&labelColor=9ED8FA&color=9ED8FA"> <img src="https://img.shields.io/badge/Experimentos-AEEBC0?style=for-the-badge&labelColor=AEEBC0&color=AEEBC0">
+<img src="https://img.shields.io/badge/IA%20Local-B8E6FF?style=flat&labelColor=B8E6FF&color=B8E6FF"> <img src="https://img.shields.io/badge/Self--hosted-9ED8FA?style=flat&labelColor=9ED8FA&color=9ED8FA"> <img src="https://img.shields.io/badge/Experimentos-AEEBC0?style=flat&labelColor=AEEBC0&color=AEEBC0">
 </p>
 
 <p>
-<img src="https://img.shields.io/badge/Rust-000000?style=flat-square&logo=rust&logoColor=white"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"> <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/Tauri-24C8DB?style=flat-square&logo=tauri&logoColor=white"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white">
+<img src="https://img.shields.io/badge/Rust-000000?style=flat&logo=rust&logoColor=white"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB"> <img src="https://img.shields.io/badge/Tauri-24C8DB?style=flat&logo=tauri&logoColor=white"> <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white">
 </p>
 
 </div>
@@ -43,7 +43,7 @@ O **BielOS** conecta diferentes ideias de software, IA, automação e infraestru
 É onde exploro como ferramentas independentes, agentes, serviços e componentes locais podem trabalhar juntos sem transformar tudo em uma única aplicação monolítica.
 
 <p>
-<img src="https://img.shields.io/badge/STATUS-DESENVOLVIMENTO%20PRIVADO-B8E6FF?style=for-the-badge"> <img src="https://img.shields.io/badge/PROJETO-PRINCIPAL-C8F7D4?style=for-the-badge">
+<img src="https://img.shields.io/badge/STATUS-DESENVOLVIMENTO%20PRIVADO-B8E6FF?style=flat"> <img src="https://img.shields.io/badge/PROJETO-PRINCIPAL-C8F7D4?style=flat">
 </p>
 
 ---
@@ -57,7 +57,7 @@ O **BielOS** conecta diferentes ideias de software, IA, automação e infraestru
 Plataforma local-first para agentes persistentes com identidade própria, memória, conversas, modelo e estado individual.
 
 <p>
-<img src="https://img.shields.io/badge/Rust-000000?style=flat-square&logo=rust&logoColor=white"> <img src="https://img.shields.io/badge/Tauri-24C8DB?style=flat-square&logo=tauri&logoColor=white"> <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Ollama-111111?style=flat-square&logo=ollama&logoColor=white">
+<img src="https://img.shields.io/badge/Rust-000000?style=flat&logo=rust&logoColor=white"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/Tauri-24C8DB?style=flat&logo=tauri&logoColor=white"> <img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Ollama-111111?style=flat&logo=ollama&logoColor=white">
 </p>
 
 ---
@@ -66,27 +66,24 @@ Plataforma local-first para agentes persistentes com identidade própria, memór
 
 ### Benchmark reproduzível para IA local
 
-Workspace desktop para criar benchmarks, executar modelos locais e preservar evidências das execuções, permitindo comparar modelos de forma inspecionável e reproduzível.
+Workspace desktop para benchmarks reproduzíveis e auditáveis, preservando configuração efetiva, outputs, hashes, histórico e evidências de avaliação. Suporta execução local com **Ollama, LM Studio e llama.cpp/GGUF**, além de provedores BYOK opcionais.
 
 <p>
-<img src="https://img.shields.io/badge/Rust-000000?style=flat-square&logo=rust&logoColor=white"> <img src="https://img.shields.io/badge/Tauri-24C8DB?style=flat-square&logo=tauri&logoColor=white"> <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Ollama-111111?style=flat-square&logo=ollama&logoColor=white">
+<img src="https://img.shields.io/badge/Rust-000000?style=flat&logo=rust&logoColor=white"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/Tauri-24C8DB?style=flat&logo=tauri&logoColor=white"> <img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Ollama-111111?style=flat&logo=ollama&logoColor=white"> <img src="https://img.shields.io/badge/LM%20Studio-local%20runtime-B8E6FF?style=flat"> <img src="https://img.shields.io/badge/llama.cpp-GGUF-AEEBC0?style=flat">
 </p>
 
 ---
 
-## 🌌 [Frontiers Models](https://github.com/bielxdh3/Frontiers-Models)
+## 🌌 [Frontier Models](https://github.com/bielxdh3/Frontiers-Models)
 
 ### Benchmarks auditáveis de modelos de fronteira
 
-Repositório unificado para preservar **prompts exatos, snapshots completos, evidências, scorecards e comparações reproduzíveis** entre modelos frontier.
+Arquivo de benchmarks completos com **prompts exatos, proveniência fixada, snapshots, evidências, scorecards e comparações reproduzíveis**.
 
-O primeiro benchmark reúne versões completas de um observatório interativo do Sistema Solar, incluindo a comparação direta entre **GPT-5.6 Sun Max**, **GPT-6 Astra Max**, **Fable 5.1** e **Grok 4.6** sob o mesmo prompt, além da primeira versão histórica do Sun.
+A arena **Frontier V2** compara atualmente **GPT-6 Astra Max**, **Grok 4.6 XHIGH**, **Fable 5.1 Max** e **Gemini 3.8 Flash High** sob o mesmo prompt mestre. **GPT-5.6 Sun Max V2** e **GPT-5.6 Luna Max** continuam preservados em uma seção separada como execuções históricas ou non-frontier.
 
 <p>
-<img src="https://img.shields.io/badge/Benchmark-Frontier%20Models-7C3AED?style=flat-square"> <img  
-src="https://img.shields.io/badge/Fable-5.1%20Max-D97706"> <img   
-src="https://img.shields.io/badge/GPT--6-Astra%20Max-A78BFA?style=flat-square"> <img
-src="https://img.shields.io/badge/GPT--5.6-Sun%20Max-F59E0B?style=flat-square"> <img                                src="https://img.shields.io/badge/Grok-4.6%20XHIGH-111111">   
+<img src="https://img.shields.io/badge/Benchmark-Frontier%20V2-7C3AED?style=flat"> <img src="https://img.shields.io/badge/GPT--6-Astra%20Max-A78BFA?style=flat"> <img src="https://img.shields.io/badge/Grok-4.6%20XHIGH-111111?style=flat"> <img src="https://img.shields.io/badge/Fable-5.1%20Max-D97706?style=flat"> <img src="https://img.shields.io/badge/Gemini-3.8%20Flash-2563EB?style=flat">
 </p>
 
 ---
@@ -98,7 +95,7 @@ src="https://img.shields.io/badge/GPT--5.6-Sun%20Max-F59E0B?style=flat-square"> 
 Sistema para gerenciamento de arquivos em rede privada com usuários, permissões, versões, compartilhamento, backups, sincronização e integrações de armazenamento.
 
 <p>
-<img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Self--Hosted-B8E6FF?style=flat-square">
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=000000"> <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white"> <img src="https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Self--Hosted-B8E6FF?style=flat">
 </p>
 
 ---
@@ -110,19 +107,19 @@ Sistema para gerenciamento de arquivos em rede privada com usuários, permissõe
 Cofre local para preservar, organizar, verificar e consultar backups do Gmail e arquivos exportados pelo Google Takeout.
 
 <p>
-<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Gmail%20API-EA4335?style=flat-square&logo=gmail&logoColor=white"> <img src="https://img.shields.io/badge/Google%20Takeout-C8F7D4?style=flat-square">
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Gmail%20API-EA4335?style=flat&logo=gmail&logoColor=white"> <img src="https://img.shields.io/badge/Google%20Takeout-C8F7D4?style=flat">
 </p>
 
 ---
 
-## ⚙️ [Dual Codex](https://github.com/bielxdh3/Dual-Codex)
+## ⚙️ [Dual Agents](https://github.com/bielxdh3/Dual-Agents)
 
-### Orquestração local de múltiplos Codex
+### Orquestração local de agentes de coding
 
-Ferramenta para coordenar contas Codex isoladas em diferentes funções, como Architect, Executor e Reviewer, mantendo identidades, permissões e contextos separados.
+Orquestrador local que coordena um **Codex Architect** com um **Google Antigravity/Gemini Executor**, usando delegação estruturada, ciclos de correção e revisão final pelo Architect. Contas, papéis, permissões e contextos permanecem separados.
 
 <p>
-<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/Codex-C8F7D4?style=flat-square"> <img src="https://img.shields.io/badge/Local%20Tooling-B8E6FF?style=flat-square">
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/Codex-Suportado-C8F7D4?style=flat"> <img src="https://img.shields.io/badge/Gemini-Suportado-4285F4?style=flat&logo=google&logoColor=white"> <img src="https://img.shields.io/badge/Local%20Orchestration-B8E6FF?style=flat">
 </p>
 
 ---
@@ -136,7 +133,7 @@ Ferramenta para coordenar contas Codex isoladas em diferentes funções, como Ar
 Laboratório local-first para clonagem de voz, preparação de datasets, fine-tuning e experimentação com múltiplas vozes usando Qwen3-TTS.
 
 <p>
-<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/Qwen3--TTS-6C5CE7?style=flat-square"> <img src="https://img.shields.io/badge/Gradio-FF7C00?style=flat-square&logo=gradio&logoColor=white"> <img src="https://img.shields.io/badge/CUDA-76B900?style=flat-square&logo=nvidia&logoColor=white">
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/Gradio-FF7C00?style=flat&logo=gradio&logoColor=white"> <img src="https://img.shields.io/badge/Qwen3--TTS-6C5CE7?style=flat"> <img src="https://img.shields.io/badge/CUDA-76B900?style=flat&logo=nvidia&logoColor=white">
 </p>
 
 ---
@@ -146,7 +143,7 @@ Laboratório local-first para clonagem de voz, preparação de datasets, fine-tu
 Aplicação pessoal para gestão financeira, despesas, entradas, cartões, cofrinhos e acompanhamento do dinheiro ao longo do mês.
 
 <p>
-<img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white">
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB"> <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white"> <img src="https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white"> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white">
 </p>
 
 ---
