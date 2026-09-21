@@ -25,10 +25,10 @@ Boa parte deles nasce de uma pergunta simples:
 # 📈 Evolução dos commits
 
 <p align="center">
-  <img src="./assets/commit-history.svg" alt="Gráfico acumulado da evolução dos commits" width="100%">
+  <img src="./assets/commit-history.gif" alt="Animação acumulada da evolução das contribuições" width="100%">
 </p>
 
-<sub>Atualizado automaticamente uma vez por dia. O gráfico conta commits únicos de minha autoria encontrados em todas as branches acessíveis, incluindo repositórios públicos e privados, com deduplicação por SHA. Nenhum nome ou detalhe de repositório privado é publicado. Os commits da própria atualização são feitos por <code>github-actions[bot]</code>.</sub>
+<sub>Atualizado automaticamente uma vez por dia. A animação percorre o histórico desde a primeira contribuição registrada em 2026 até o total atual usando o calendário de contribuições do perfil, incluindo contribuições privadas quando o token do workflow permite, sem publicar nomes ou detalhes de repositórios privados. O SVG estático continua sendo gerado como fallback, e as atualizações automáticas são feitas por <code>github-actions[bot]</code>.</sub>
 
 ---
 
