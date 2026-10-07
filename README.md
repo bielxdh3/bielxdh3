@@ -32,13 +32,13 @@ Boa parte deles nasce de uma pergunta simples:
 
 ---
 
-# 🧠 BielOS
+# 🧠 [Virki](https://github.com/bielxdh3/Virki)
 
 > ### 🔒 Meu projeto principal e maior ecossistema experimental
 >
 > **IA · software · infraestrutura · integração de ferramentas**
 
-O **BielOS** conecta diferentes ideias de software, IA, automação e infraestrutura em uma arquitetura maior.
+O **Virki** conecta diferentes ideias de software, IA, automação e infraestrutura em uma arquitetura maior.
 
 É onde exploro como ferramentas independentes, agentes, serviços e componentes locais podem trabalhar juntos sem transformar tudo em uma única aplicação monolítica.
 
