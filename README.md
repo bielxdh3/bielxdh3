@@ -32,7 +32,7 @@ Boa parte deles nasce de uma pergunta simples:
 
 ---
 
-# 🧠 [Virki](https://github.com/bielxdh3/Virki)
+# 🧠 Virki
 
 > ### 🔒 Meu projeto principal e maior ecossistema experimental
 >
