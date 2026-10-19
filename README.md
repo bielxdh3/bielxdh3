@@ -42,6 +42,8 @@ O **Virki** conecta diferentes ideias de software, IA, automação e infraestrut
 
 É onde exploro como ferramentas independentes, agentes, serviços e componentes locais podem trabalhar juntos sem transformar tudo em uma única aplicação monolítica.
 
+Em outubro de 2026, o código incorporou reforços de autenticação/OIDC, investigação de auditoria e recuperação de acesso; a validação de produção ainda está pendente.
+
 <p>
 <img src="https://img.shields.io/badge/STATUS-DESENVOLVIMENTO%20PRIVADO-B8E6FF?style=flat"> <img src="https://img.shields.io/badge/PROJETO-PRINCIPAL-C8F7D4?style=flat">
 </p>
@@ -68,6 +70,8 @@ Plataforma local-first para agentes persistentes com identidade própria, memór
 
 Workspace desktop para benchmarks reproduzíveis e auditáveis, preservando configuração efetiva, outputs, hashes, histórico e evidências de avaliação. Suporta execução local com **Ollama, LM Studio e llama.cpp/GGUF**, além de provedores BYOK opcionais.
 
+A versão pública continua em **v0.1.4 Beta**; o código posterior avançou comparações históricas, robustez, avaliações e empacotamento, ainda com critérios de aceitação pendentes.
+
 <p>
 <img src="https://img.shields.io/badge/Rust-000000?style=flat&logo=rust&logoColor=white"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/Tauri-24C8DB?style=flat&logo=tauri&logoColor=white"> <img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Ollama-111111?style=flat&logo=ollama&logoColor=white"> <img src="https://img.shields.io/badge/LM%20Studio-local%20runtime-B8E6FF?style=flat"> <img src="https://img.shields.io/badge/llama.cpp-GGUF-AEEBC0?style=flat">
 </p>
@@ -93,6 +97,8 @@ A arena **Frontier V2** compara atualmente **GPT-6 Astra Max**, **Grok 4.6 XHIGH
 ### Armazenamento e sincronização self-hosted
 
 Sistema para gerenciamento de arquivos em rede privada com usuários, permissões, versões, compartilhamento, backups, sincronização e integrações de armazenamento.
+
+As mudanças recentes incluem sincronização seletiva, controles contra bursts suspeitos e módulos experimentais de criptografia zero-knowledge; **não é um sistema zero-knowledge completo nem pronto para produção pública**.
 
 <p>
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=000000"> <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white"> <img src="https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Self--Hosted-B8E6FF?style=flat">
@@ -141,6 +147,8 @@ Laboratório local-first para clonagem de voz, preparação de datasets, fine-tu
 ## 💰 [deManage](https://github.com/bielxdh3/demanage)
 
 Aplicação pessoal para gestão financeira, despesas, entradas, cartões, cofrinhos e acompanhamento do dinheiro ao longo do mês.
+
+O código agora inclui integração financeira **MCP opcional**, com OAuth, consultas de resumo mensal e reversão controlada de operações criadas por esse canal; permanece desativada por padrão.
 
 <p>
 <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB"> <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white"> <img src="https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white"> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white">
