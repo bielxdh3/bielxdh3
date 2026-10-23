@@ -131,17 +131,6 @@ Orquestrador local que coordena um **Codex Architect** com um **Google Antigravi
 ---
 
 # 🧪 Outros projetos
-
-## 🎙 [V-Lab](https://github.com/bielxdh3/V-Lab)
-
-### Voice Lab
-
-Laboratório local-first para clonagem de voz, preparação de datasets, fine-tuning e experimentação com múltiplas vozes usando Qwen3-TTS.
-
-<p>
-<img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/Gradio-FF7C00?style=flat&logo=gradio&logoColor=white"> <img src="https://img.shields.io/badge/Qwen3--TTS-6C5CE7?style=flat"> <img src="https://img.shields.io/badge/CUDA-76B900?style=flat&logo=nvidia&logoColor=white">
-</p>
-
 ---
 
 ## 💰 [deManage](https://github.com/bielxdh3/demanage)
