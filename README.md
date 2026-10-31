@@ -32,7 +32,7 @@ Boa parte deles nasce de uma pergunta simples:
 
 ---
 
-# 🧠 Virki
+# 🛡 Virki
 
 > ### 🔒 Meu projeto principal e maior ecossistema experimental
 >
