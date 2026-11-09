@@ -1,5 +1,7 @@
 <div align="center">
   
+### G̷̦̭̣̮̳̤̯̐̔̓͛̿̏a̴͔̤̅̍̄̈́̒͐̚b̵̡͇̤̻̖̏r̴̪̼̤̤̗̝̱͂̀͗͋͆i̵̧̺̳̬͉̦̲͛̽͝é̴͖̹͕͎̮̰̍́́l̸͎͖̩͈͕͋͆́
+
 ### Construindo IA local, software experimental e ferramentas que eu gostaria que existissem.
 
 <p>
@@ -22,7 +24,7 @@ Boa parte deles nasce de uma pergunta simples:
 
 ---
 
-# 📈 Evolução dos commits
+# 📈 Evolução das contribuições 
 
 <p align="center">
   <img src="./assets/commit-history.gif" alt="Animação acumulada da evolução das contribuições" width="100%">
@@ -41,8 +43,6 @@ Boa parte deles nasce de uma pergunta simples:
 O **Virki** conecta diferentes ideias de software, IA, automação e infraestrutura em uma arquitetura maior.
 
 É onde exploro como ferramentas independentes, agentes, serviços e componentes locais podem trabalhar juntos sem transformar tudo em uma única aplicação monolítica.
-
-Em outubro de 2026, o código incorporou reforços de autenticação/OIDC, investigação de auditoria e recuperação de acesso; a validação de produção ainda está pendente.
 
 <p>
 <img src="https://img.shields.io/badge/STATUS-DESENVOLVIMENTO%20PRIVADO-B8E6FF?style=flat"> <img src="https://img.shields.io/badge/PROJETO-PRINCIPAL-C8F7D4?style=flat">
@@ -70,8 +70,6 @@ Plataforma local-first para agentes persistentes com identidade própria, memór
 
 Workspace desktop para benchmarks reproduzíveis e auditáveis, preservando configuração efetiva, outputs, hashes, histórico e evidências de avaliação. Suporta execução local com **Ollama, LM Studio e llama.cpp/GGUF**, além de provedores BYOK opcionais.
 
-A versão pública continua em **v0.1.4 Beta**; o código posterior avançou comparações históricas, robustez, avaliações e empacotamento, ainda com critérios de aceitação pendentes.
-
 <p>
 <img src="https://img.shields.io/badge/Rust-000000?style=flat&logo=rust&logoColor=white"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/Tauri-24C8DB?style=flat&logo=tauri&logoColor=white"> <img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Ollama-111111?style=flat&logo=ollama&logoColor=white"> <img src="https://img.shields.io/badge/LM%20Studio-local%20runtime-B8E6FF?style=flat"> <img src="https://img.shields.io/badge/llama.cpp-GGUF-AEEBC0?style=flat">
 </p>
@@ -84,21 +82,25 @@ A versão pública continua em **v0.1.4 Beta**; o código posterior avançou com
 
 Arquivo de benchmarks completos com **prompts exatos, proveniência fixada, snapshots, evidências, scorecards e comparações reproduzíveis**.
 
-A arena **Frontier V2** compara atualmente **GPT-6 Astra Max**, **Grok 4.6 XHIGH**, **Fable 5.1 Max** e **Gemini 3.8 Flash High** sob o mesmo prompt mestre. **GPT-5.6 Sun Max V2** e **GPT-5.6 Luna Max** continuam preservados em uma seção separada como execuções históricas ou non-frontier.
+Os benchmarks atuais incluem **Racing-bench V3.4** e **Orbitarium-bench**, com versões jogáveis, código-fonte verificável e registros de proveniência. As seleções abaixo refletem os conjuntos atuais publicados no repositório.
 
 <p>
-<img src="https://img.shields.io/badge/Benchmark-Frontier%20V2-7C3AED?style=flat"> <img src="https://img.shields.io/badge/GPT--6-Astra%20Max-A78BFA?style=flat"> <img src="https://img.shields.io/badge/Grok-4.6%20XHIGH-111111?style=flat"> <img src="https://img.shields.io/badge/Fable-5.1%20Max-D97706?style=flat"> <img src="https://img.shields.io/badge/Gemini-3.8%20Flash-2563EB?style=flat">
+<img src="https://img.shields.io/badge/Benchmark-Racing%20V3.4-7C3AED?style=flat"> <img src="https://img.shields.io/badge/GPT--6.1-Sol-A78BFA?style=flat"> <img src="https://img.shields.io/badge/GPT--6-Astra-8B5CF6?style=flat"> <img src="https://img.shields.io/badge/Opus-5.5-D97706?style=flat"> <img src="https://img.shields.io/badge/Gemini%204-Argon-2563EB?style=flat"> <img src="https://img.shields.io/badge/Sonnet-5.5-0D9488?style=flat">
+</p>
+
+<p>
+<img src="https://img.shields.io/badge/Benchmark-Orbitarium%20V2-7C3AED?style=flat"> <img src="https://img.shields.io/badge/GPT--6.1-Sol-A78BFA?style=flat"> <img src="https://img.shields.io/badge/GPT--6-Astra-8B5CF6?style=flat"> <img src="https://img.shields.io/badge/Grok-4.7-111111?style=flat"> <img src="https://img.shields.io/badge/Fable-5.1-D97706?style=flat"> <img src="https://img.shields.io/badge/Gemini%204-Argon-2563EB?style=flat">
 </p>
 
 ---
 
-## 🗄️ [Root.ark](https://github.com/bielxdh3/root.ark)
+## 🗄️ [Root.ark](https://github.com/bielxdh3/Root.ark)
 
 ### Armazenamento e sincronização self-hosted
 
 Sistema para gerenciamento de arquivos em rede privada com usuários, permissões, versões, compartilhamento, backups, sincronização e integrações de armazenamento.
 
-As mudanças recentes incluem sincronização seletiva, controles contra bursts suspeitos e módulos experimentais de criptografia zero-knowledge; **não é um sistema zero-knowledge completo nem pronto para produção pública**.
+**Em desenvolvimento:** recursos experimentais de criptografia não tornam o sistema adequado para exposição pública ou produção sem revisão de segurança.
 
 <p>
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=000000"> <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white"> <img src="https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Self--Hosted-B8E6FF?style=flat">
@@ -131,13 +133,10 @@ Orquestrador local que coordena um **Codex Architect** com um **Google Antigravi
 ---
 
 # 🧪 Outros projetos
----
 
 ## 💰 [deManage](https://github.com/bielxdh3/demanage)
 
 Aplicação pessoal para gestão financeira, despesas, entradas, cartões, cofrinhos e acompanhamento do dinheiro ao longo do mês.
-
-O código agora inclui integração financeira **MCP opcional**, com OAuth, consultas de resumo mensal e reversão controlada de operações criadas por esse canal; permanece desativada por padrão.
 
 <p>
 <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB"> <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white"> <img src="https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white"> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white">
