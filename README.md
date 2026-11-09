@@ -1,6 +1,6 @@
 <div align="center">
 
-# 👋 Olá, eu sou o Gabriel
+#  Olá, eu sou o G̷̦̭̣̮̳̤̯̐̔̓͛̿̏a̴͔̤̅̍̄̈́̒͐̚b̵̡͇̤̻̖̏r̴̪̼̤̤̗̝̱͂̀͗͋͆i̵̧̺̳̬͉̦̲͛̽͝é̴͖̹͕͎̮̰̍́́l̸͎͖̩͈͕͋͆́
 
 ### IA local, ferramentas para desenvolvedores e software self-hosted
 
