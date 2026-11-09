@@ -24,7 +24,7 @@ Boa parte deles nasce de uma pergunta simples:
 
 ---
 
-# 📈 Evolução dos commits
+# 📈 Evolução das contribuições 
 
 <p align="center">
   <img src="./assets/commit-history.gif" alt="Animação acumulada da evolução das contribuições" width="100%">
