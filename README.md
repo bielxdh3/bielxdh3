@@ -1,6 +1,6 @@
 <div align="center">
 
-#  Olá, eu sou o G̷̦̭̣̮̳̤̯̐̔̓͛̿̏a̴͔̤̅̍̄̈́̒͐̚b̵̡͇̤̻̖̏r̴̪̼̤̤̗̝̱͂̀͗͋͆i̵̧̺̳̬͉̦̲͛̽͝é̴͖̹͕͎̮̰̍́́l̸͎͖̩͈͕͋͆́
+# G̷̦̭̣̮̳̤̯̐̔̓͛̿̏a̴͔̤̅̍̄̈́̒͐̚b̵̡͇̤̻̖̏r̴̪̼̤̤̗̝̱͂̀͗͋͆i̵̧̺̳̬͉̦̲͛̽͝é̴͖̹͕͎̮̰̍́́l̸͎͖̩͈͕͋͆́
 
 ### IA local, ferramentas para desenvolvedores e software self-hosted
 
@@ -34,6 +34,10 @@ Aplicativo desktop para **comparar modelos de linguagem com testes reproduzívei
 
 **Ecossistema:** Ollama · LM Studio · llama.cpp/GGUF · provedores via API.
 
+<p>
+<img src="https://img.shields.io/badge/Rust-000000?style=flat&logo=rust&logoColor=white"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/Tauri-24C8DB?style=flat&logo=tauri&logoColor=white"> <img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Ollama-111111?style=flat&logo=ollama&logoColor=white"> <img src="https://img.shields.io/badge/LM%20Studio-local%20runtime-B8E6FF?style=flat"> <img src="https://img.shields.io/badge/llama.cpp-GGUF-AEEBC0?style=flat">
+</p>
+
 [Explorar o projeto](https://github.com/bielxdh3/Prompt-Arena) · [Releases](https://github.com/bielxdh3/Prompt-Arena/releases)
 
 ### 🤖 [A.I.P.](https://github.com/bielxdh3/AIP) — agentes independentes personalizáveis
@@ -42,11 +46,19 @@ Plataforma desktop **local-first** para agentes de IA com identidade, memória, 
 
 **Ecossistema:** Tauri · Rust · TypeScript · Python · modelos locais.
 
+<p>
+<img src="https://img.shields.io/badge/Rust-000000?style=flat&logo=rust&logoColor=white"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/Tauri-24C8DB?style=flat&logo=tauri&logoColor=white"> <img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Ollama-111111?style=flat&logo=ollama&logoColor=white">
+</p>
+
 [Explorar o projeto](https://github.com/bielxdh3/AIP)
 
 ### 🌌 [Frontier Models](https://github.com/bielxdh3/Frontiers-Models) — benchmarks de modelos de fronteira
 
 Coleção de experimentos de programação com **prompts exatos, código inspecionável, snapshots e proveniência**. Inclui projetos interativos que permitem comparar as entregas dos modelos, como **Racing-bench** e **Orbitarium-bench**.
+
+<p>
+<img src="https://img.shields.io/badge/Benchmark-Frontier%20V2-7C3AED?style=flat"> <img src="https://img.shields.io/badge/GPT--6-Astra%20Max-A78BFA?style=flat"> <img src="https://img.shields.io/badge/Grok-4.6%20XHIGH-111111?style=flat"> <img src="https://img.shields.io/badge/Fable-5.1%20Max-D97706?style=flat"> <img src="https://img.shields.io/badge/Gemini-3.8%20Flash-2563EB?style=flat">
+</p>
 
 [Explorar os benchmarks](https://github.com/bielxdh3/Frontiers-Models) · [Racing-bench](https://github.com/bielxdh3/Frontiers-Models/tree/main/benchmarks/racing) · [Orbitarium-bench](https://github.com/bielxdh3/Frontiers-Models/tree/main/benchmarks/solar-system)
 
@@ -58,6 +70,10 @@ Sistema de armazenamento e sincronização de arquivos com **controle de acesso,
 
 > ⚠️ Em desenvolvimento. Não é recomendado para exposição pública ou uso em produção sem revisão específica de segurança.
 
+<p>
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=000000"> <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white"> <img src="https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Self--Hosted-B8E6FF?style=flat">
+</p>
+
 [Explorar o projeto](https://github.com/bielxdh3/Root.ark)
 
 ### 🔐 [L-Vault](https://github.com/bielxdh3/L-vault) — backups sob seu controle
@@ -66,6 +82,10 @@ Gerenciador local para organizar, consultar e verificar backups do **Gmail e Goo
 
 **Ecossistema:** Python · armazenamento local · Google Takeout.
 
+<p>
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white"> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white"> <img src="https://img.shields.io/badge/Gmail%20API-EA4335?style=flat&logo=gmail&logoColor=white"> <img src="https://img.shields.io/badge/Google%20Takeout-C8F7D4?style=flat">
+</p>
+
 [Explorar o projeto](https://github.com/bielxdh3/L-vault)
 
 ### 💰 [deManage](https://github.com/bielxdh3/demanage) — finanças pessoais
@@ -73,6 +93,10 @@ Gerenciador local para organizar, consultar e verificar backups do **Gmail e Goo
 Aplicativo self-hosted para acompanhar **receitas, despesas, cartões, orçamento mensal, objetivos de poupança e patrimônio**, com foco no uso pessoal em reais (BRL).
 
 **Ecossistema:** React · TypeScript · Node.js · PostgreSQL.
+
+<p>
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB"> <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white"> <img src="https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white"> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white">
+</p>
 
 [Explorar o projeto](https://github.com/bielxdh3/demanage) · [Site](https://demanage.biel.dev.br/)
 
