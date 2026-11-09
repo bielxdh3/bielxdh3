@@ -26,7 +26,7 @@ O **Virki** é um ecossistema experimental privado no qual exploro como agentes,
 
 ---
 
-## 🚀 Projetos em destaque
+## 💯  Projetos em destaque
 
 ### ⚔️ [Prompt Arena](https://github.com/bielxdh3/Prompt-Arena) — benchmarks de IA local
 
