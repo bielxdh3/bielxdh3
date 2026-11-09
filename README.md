@@ -133,7 +133,6 @@ Orquestrador local que coordena um **Codex Architect** com um **Google Antigravi
 ---
 
 # 🧪 Outros projetos
----
 
 ## 💰 [deManage](https://github.com/bielxdh3/demanage)
 
