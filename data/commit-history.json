@@ -1,7 +1,7 @@
 {
   "schema": 8,
   "user": "bielxdh3",
-  "generated_at": "2026-11-23T18:25:16Z",
+  "generated_at": "2026-11-23T21:41:04Z",
   "scope": "github_profile_contributions_from_first_2026_activity",
   "includes_private_contributions": true,
   "private_repository_details_published": false,
@@ -10,7 +10,7 @@
   "graph_window_start": "2026-04-23",
   "graph_window_end": "2026-11-23",
   "first_contribution_date": "2026-04-23",
-  "total_contributions": 5096,
+  "total_contributions": 6309,
   "series": [
     {
       "date": "2026-04-23",
@@ -299,793 +299,793 @@
     },
     {
       "date": "2026-06-19",
-      "contributions": 14,
-      "total": 30
-    },
-    {
-      "date": "2026-06-20",
-      "contributions": 9,
-      "total": 39
-    },
-    {
-      "date": "2026-06-21",
-      "contributions": 3,
+      "contributions": 26,
       "total": 42
     },
     {
+      "date": "2026-06-20",
+      "contributions": 18,
+      "total": 60
+    },
+    {
+      "date": "2026-06-21",
+      "contributions": 6,
+      "total": 66
+    },
+    {
       "date": "2026-06-22",
-      "contributions": 17,
-      "total": 59
+      "contributions": 18,
+      "total": 84
     },
     {
       "date": "2026-06-23",
       "contributions": 11,
-      "total": 70
+      "total": 95
     },
     {
       "date": "2026-06-24",
       "contributions": 17,
-      "total": 87
+      "total": 112
     },
     {
       "date": "2026-06-25",
       "contributions": 20,
-      "total": 107
+      "total": 132
     },
     {
       "date": "2026-06-26",
       "contributions": 4,
-      "total": 111
+      "total": 136
     },
     {
       "date": "2026-06-27",
       "contributions": 1,
-      "total": 112
+      "total": 137
     },
     {
       "date": "2026-06-28",
       "contributions": 1,
-      "total": 113
+      "total": 138
     },
     {
       "date": "2026-06-29",
       "contributions": 0,
-      "total": 113
+      "total": 138
     },
     {
       "date": "2026-06-30",
       "contributions": 0,
-      "total": 113
+      "total": 138
     },
     {
       "date": "2026-07-01",
       "contributions": 0,
-      "total": 113
+      "total": 138
     },
     {
       "date": "2026-07-02",
       "contributions": 0,
-      "total": 113
+      "total": 138
     },
     {
       "date": "2026-07-03",
       "contributions": 0,
-      "total": 113
+      "total": 138
     },
     {
       "date": "2026-07-04",
       "contributions": 0,
-      "total": 113
+      "total": 138
     },
     {
       "date": "2026-07-05",
       "contributions": 0,
-      "total": 113
+      "total": 138
     },
     {
       "date": "2026-07-06",
       "contributions": 0,
-      "total": 113
+      "total": 138
     },
     {
       "date": "2026-07-07",
       "contributions": 0,
-      "total": 113
+      "total": 138
     },
     {
       "date": "2026-07-08",
       "contributions": 0,
-      "total": 113
+      "total": 138
     },
     {
       "date": "2026-07-09",
       "contributions": 0,
-      "total": 113
+      "total": 138
     },
     {
       "date": "2026-07-10",
       "contributions": 0,
-      "total": 113
+      "total": 138
     },
     {
       "date": "2026-07-11",
       "contributions": 0,
-      "total": 113
+      "total": 138
     },
     {
       "date": "2026-07-12",
       "contributions": 0,
-      "total": 113
+      "total": 138
     },
     {
       "date": "2026-07-13",
       "contributions": 0,
-      "total": 113
+      "total": 138
     },
     {
       "date": "2026-07-14",
       "contributions": 38,
-      "total": 151
+      "total": 176
     },
     {
       "date": "2026-07-15",
       "contributions": 4,
-      "total": 155
+      "total": 180
     },
     {
       "date": "2026-07-16",
       "contributions": 6,
-      "total": 161
+      "total": 186
     },
     {
       "date": "2026-07-17",
       "contributions": 1,
-      "total": 162
+      "total": 187
     },
     {
       "date": "2026-07-18",
       "contributions": 0,
-      "total": 162
+      "total": 187
     },
     {
       "date": "2026-07-19",
       "contributions": 0,
-      "total": 162
+      "total": 187
     },
     {
       "date": "2026-07-20",
-      "contributions": 21,
-      "total": 183
+      "contributions": 35,
+      "total": 222
     },
     {
       "date": "2026-07-21",
-      "contributions": 10,
-      "total": 193
+      "contributions": 19,
+      "total": 241
     },
     {
       "date": "2026-07-22",
-      "contributions": 4,
-      "total": 197
+      "contributions": 6,
+      "total": 247
     },
     {
       "date": "2026-07-23",
       "contributions": 0,
-      "total": 197
+      "total": 247
     },
     {
       "date": "2026-07-24",
-      "contributions": 1,
-      "total": 198
+      "contributions": 2,
+      "total": 249
     },
     {
       "date": "2026-07-25",
-      "contributions": 60,
-      "total": 258
+      "contributions": 102,
+      "total": 351
     },
     {
       "date": "2026-07-26",
-      "contributions": 14,
-      "total": 272
+      "contributions": 28,
+      "total": 379
     },
     {
       "date": "2026-07-27",
-      "contributions": 3,
-      "total": 275
+      "contributions": 6,
+      "total": 385
     },
     {
       "date": "2026-07-28",
-      "contributions": 2,
-      "total": 277
+      "contributions": 4,
+      "total": 389
     },
     {
       "date": "2026-07-29",
-      "contributions": 7,
-      "total": 284
+      "contributions": 8,
+      "total": 397
     },
     {
       "date": "2026-07-30",
-      "contributions": 10,
-      "total": 294
+      "contributions": 12,
+      "total": 409
     },
     {
       "date": "2026-07-31",
-      "contributions": 37,
-      "total": 331
+      "contributions": 47,
+      "total": 456
     },
     {
       "date": "2026-08-01",
       "contributions": 67,
-      "total": 398
+      "total": 523
     },
     {
       "date": "2026-08-02",
-      "contributions": 55,
-      "total": 453
+      "contributions": 58,
+      "total": 581
     },
     {
       "date": "2026-08-03",
       "contributions": 13,
-      "total": 466
+      "total": 594
     },
     {
       "date": "2026-08-04",
       "contributions": 8,
-      "total": 474
+      "total": 602
     },
     {
       "date": "2026-08-05",
       "contributions": 10,
-      "total": 484
+      "total": 612
     },
     {
       "date": "2026-08-06",
-      "contributions": 19,
-      "total": 503
+      "contributions": 21,
+      "total": 633
     },
     {
       "date": "2026-08-07",
       "contributions": 0,
-      "total": 503
+      "total": 633
     },
     {
       "date": "2026-08-08",
       "contributions": 14,
-      "total": 517
+      "total": 647
     },
     {
       "date": "2026-08-09",
       "contributions": 0,
-      "total": 517
+      "total": 647
     },
     {
       "date": "2026-08-10",
       "contributions": 3,
-      "total": 520
+      "total": 650
     },
     {
       "date": "2026-08-11",
-      "contributions": 13,
-      "total": 533
+      "contributions": 16,
+      "total": 666
     },
     {
       "date": "2026-08-12",
       "contributions": 0,
-      "total": 533
+      "total": 666
     },
     {
       "date": "2026-08-13",
-      "contributions": 18,
-      "total": 551
+      "contributions": 22,
+      "total": 688
     },
     {
       "date": "2026-08-14",
-      "contributions": 13,
-      "total": 564
+      "contributions": 14,
+      "total": 702
     },
     {
       "date": "2026-08-15",
       "contributions": 5,
-      "total": 569
+      "total": 707
     },
     {
       "date": "2026-08-16",
       "contributions": 34,
-      "total": 603
+      "total": 741
     },
     {
       "date": "2026-08-17",
       "contributions": 5,
-      "total": 608
+      "total": 746
     },
     {
       "date": "2026-08-18",
       "contributions": 1,
-      "total": 609
+      "total": 747
     },
     {
       "date": "2026-08-19",
-      "contributions": 7,
-      "total": 616
+      "contributions": 10,
+      "total": 757
     },
     {
       "date": "2026-08-20",
-      "contributions": 99,
-      "total": 715
+      "contributions": 169,
+      "total": 926
     },
     {
       "date": "2026-08-21",
-      "contributions": 29,
-      "total": 744
+      "contributions": 42,
+      "total": 968
     },
     {
       "date": "2026-08-22",
-      "contributions": 54,
-      "total": 798
+      "contributions": 103,
+      "total": 1071
     },
     {
       "date": "2026-08-23",
-      "contributions": 7,
-      "total": 805
+      "contributions": 13,
+      "total": 1084
     },
     {
       "date": "2026-08-24",
-      "contributions": 5,
-      "total": 810
+      "contributions": 9,
+      "total": 1093
     },
     {
       "date": "2026-08-25",
       "contributions": 0,
-      "total": 810
+      "total": 1093
     },
     {
       "date": "2026-08-26",
       "contributions": 0,
-      "total": 810
-    },
-    {
-      "date": "2026-08-27",
-      "contributions": 24,
-      "total": 834
-    },
-    {
-      "date": "2026-08-28",
-      "contributions": 43,
-      "total": 877
-    },
-    {
-      "date": "2026-08-29",
-      "contributions": 6,
-      "total": 883
-    },
-    {
-      "date": "2026-08-30",
-      "contributions": 9,
-      "total": 892
-    },
-    {
-      "date": "2026-08-31",
-      "contributions": 23,
-      "total": 915
-    },
-    {
-      "date": "2026-09-01",
-      "contributions": 10,
-      "total": 925
-    },
-    {
-      "date": "2026-09-02",
-      "contributions": 5,
-      "total": 930
-    },
-    {
-      "date": "2026-09-03",
-      "contributions": 55,
-      "total": 985
-    },
-    {
-      "date": "2026-09-04",
-      "contributions": 46,
-      "total": 1031
-    },
-    {
-      "date": "2026-09-05",
-      "contributions": 3,
-      "total": 1034
-    },
-    {
-      "date": "2026-09-06",
-      "contributions": 40,
-      "total": 1074
-    },
-    {
-      "date": "2026-09-07",
-      "contributions": 19,
       "total": 1093
     },
     {
-      "date": "2026-09-08",
+      "date": "2026-08-27",
+      "contributions": 39,
+      "total": 1132
+    },
+    {
+      "date": "2026-08-28",
+      "contributions": 71,
+      "total": 1203
+    },
+    {
+      "date": "2026-08-29",
+      "contributions": 8,
+      "total": 1211
+    },
+    {
+      "date": "2026-08-30",
+      "contributions": 10,
+      "total": 1221
+    },
+    {
+      "date": "2026-08-31",
+      "contributions": 38,
+      "total": 1259
+    },
+    {
+      "date": "2026-09-01",
       "contributions": 15,
-      "total": 1108
+      "total": 1274
+    },
+    {
+      "date": "2026-09-02",
+      "contributions": 10,
+      "total": 1284
+    },
+    {
+      "date": "2026-09-03",
+      "contributions": 58,
+      "total": 1342
+    },
+    {
+      "date": "2026-09-04",
+      "contributions": 72,
+      "total": 1414
+    },
+    {
+      "date": "2026-09-05",
+      "contributions": 5,
+      "total": 1419
+    },
+    {
+      "date": "2026-09-06",
+      "contributions": 43,
+      "total": 1462
+    },
+    {
+      "date": "2026-09-07",
+      "contributions": 37,
+      "total": 1499
+    },
+    {
+      "date": "2026-09-08",
+      "contributions": 30,
+      "total": 1529
     },
     {
       "date": "2026-09-09",
-      "contributions": 31,
-      "total": 1139
+      "contributions": 46,
+      "total": 1575
     },
     {
       "date": "2026-09-10",
-      "contributions": 17,
-      "total": 1156
+      "contributions": 25,
+      "total": 1600
     },
     {
       "date": "2026-09-11",
-      "contributions": 17,
-      "total": 1173
+      "contributions": 33,
+      "total": 1633
     },
     {
       "date": "2026-09-12",
-      "contributions": 61,
-      "total": 1234
+      "contributions": 107,
+      "total": 1740
     },
     {
       "date": "2026-09-13",
-      "contributions": 79,
-      "total": 1313
+      "contributions": 158,
+      "total": 1898
     },
     {
       "date": "2026-09-14",
-      "contributions": 13,
-      "total": 1326
+      "contributions": 23,
+      "total": 1921
     },
     {
       "date": "2026-09-15",
-      "contributions": 42,
-      "total": 1368
+      "contributions": 80,
+      "total": 2001
     },
     {
       "date": "2026-09-16",
-      "contributions": 32,
-      "total": 1400
+      "contributions": 55,
+      "total": 2056
     },
     {
       "date": "2026-09-17",
-      "contributions": 17,
-      "total": 1417
+      "contributions": 27,
+      "total": 2083
     },
     {
       "date": "2026-09-18",
       "contributions": 42,
-      "total": 1459
+      "total": 2125
     },
     {
       "date": "2026-09-19",
       "contributions": 6,
-      "total": 1465
+      "total": 2131
     },
     {
       "date": "2026-09-20",
       "contributions": 0,
-      "total": 1465
+      "total": 2131
     },
     {
       "date": "2026-09-21",
-      "contributions": 41,
-      "total": 1506
+      "contributions": 42,
+      "total": 2173
     },
     {
       "date": "2026-09-22",
       "contributions": 28,
-      "total": 1534
+      "total": 2201
     },
     {
       "date": "2026-09-23",
-      "contributions": 51,
-      "total": 1585
+      "contributions": 72,
+      "total": 2273
     },
     {
       "date": "2026-09-24",
-      "contributions": 50,
-      "total": 1635
+      "contributions": 64,
+      "total": 2337
     },
     {
       "date": "2026-09-25",
-      "contributions": 34,
-      "total": 1669
+      "contributions": 43,
+      "total": 2380
     },
     {
       "date": "2026-09-26",
-      "contributions": 83,
-      "total": 1752
+      "contributions": 133,
+      "total": 2513
     },
     {
       "date": "2026-09-27",
-      "contributions": 44,
-      "total": 1796
+      "contributions": 77,
+      "total": 2590
     },
     {
       "date": "2026-09-28",
-      "contributions": 31,
-      "total": 1827
+      "contributions": 49,
+      "total": 2639
     },
     {
       "date": "2026-09-29",
-      "contributions": 28,
-      "total": 1855
+      "contributions": 41,
+      "total": 2680
     },
     {
       "date": "2026-09-30",
-      "contributions": 29,
-      "total": 1884
+      "contributions": 47,
+      "total": 2727
     },
     {
       "date": "2026-10-01",
-      "contributions": 27,
-      "total": 1911
+      "contributions": 31,
+      "total": 2758
     },
     {
       "date": "2026-10-02",
       "contributions": 0,
-      "total": 1911
+      "total": 2758
     },
     {
       "date": "2026-10-03",
       "contributions": 15,
-      "total": 1926
+      "total": 2773
     },
     {
       "date": "2026-10-04",
       "contributions": 14,
-      "total": 1940
+      "total": 2787
     },
     {
       "date": "2026-10-05",
       "contributions": 16,
-      "total": 1956
+      "total": 2803
     },
     {
       "date": "2026-10-06",
       "contributions": 95,
-      "total": 2051
+      "total": 2898
     },
     {
       "date": "2026-10-07",
       "contributions": 48,
-      "total": 2099
+      "total": 2946
     },
     {
       "date": "2026-10-08",
       "contributions": 97,
-      "total": 2196
+      "total": 3043
     },
     {
       "date": "2026-10-09",
-      "contributions": 30,
-      "total": 2226
+      "contributions": 35,
+      "total": 3078
     },
     {
       "date": "2026-10-10",
-      "contributions": 83,
-      "total": 2309
+      "contributions": 101,
+      "total": 3179
     },
     {
       "date": "2026-10-11",
-      "contributions": 46,
-      "total": 2355
+      "contributions": 48,
+      "total": 3227
     },
     {
       "date": "2026-10-12",
       "contributions": 10,
-      "total": 2365
+      "total": 3237
     },
     {
       "date": "2026-10-13",
-      "contributions": 13,
-      "total": 2378
+      "contributions": 24,
+      "total": 3261
     },
     {
       "date": "2026-10-14",
-      "contributions": 67,
-      "total": 2445
+      "contributions": 68,
+      "total": 3329
     },
     {
       "date": "2026-10-15",
       "contributions": 67,
-      "total": 2512
+      "total": 3396
     },
     {
       "date": "2026-10-16",
-      "contributions": 83,
-      "total": 2595
+      "contributions": 115,
+      "total": 3511
     },
     {
       "date": "2026-10-17",
-      "contributions": 102,
-      "total": 2697
+      "contributions": 118,
+      "total": 3629
     },
     {
       "date": "2026-10-18",
-      "contributions": 68,
-      "total": 2765
+      "contributions": 80,
+      "total": 3709
     },
     {
       "date": "2026-10-19",
-      "contributions": 40,
-      "total": 2805
+      "contributions": 54,
+      "total": 3763
     },
     {
       "date": "2026-10-20",
-      "contributions": 2,
-      "total": 2807
+      "contributions": 3,
+      "total": 3766
     },
     {
       "date": "2026-10-21",
-      "contributions": 144,
-      "total": 2951
+      "contributions": 157,
+      "total": 3923
     },
     {
       "date": "2026-10-22",
       "contributions": 46,
-      "total": 2997
+      "total": 3969
     },
     {
       "date": "2026-10-23",
-      "contributions": 81,
-      "total": 3078
+      "contributions": 156,
+      "total": 4125
     },
     {
       "date": "2026-10-24",
-      "contributions": 39,
-      "total": 3117
+      "contributions": 51,
+      "total": 4176
     },
     {
       "date": "2026-10-25",
-      "contributions": 37,
-      "total": 3154
+      "contributions": 38,
+      "total": 4214
     },
     {
       "date": "2026-10-26",
-      "contributions": 159,
-      "total": 3313
+      "contributions": 165,
+      "total": 4379
     },
     {
       "date": "2026-10-27",
-      "contributions": 44,
-      "total": 3357
+      "contributions": 45,
+      "total": 4424
     },
     {
       "date": "2026-10-28",
       "contributions": 110,
-      "total": 3467
+      "total": 4534
     },
     {
       "date": "2026-10-29",
       "contributions": 17,
-      "total": 3484
+      "total": 4551
     },
     {
       "date": "2026-10-30",
       "contributions": 1,
-      "total": 3485
+      "total": 4552
     },
     {
       "date": "2026-10-31",
       "contributions": 127,
-      "total": 3612
+      "total": 4679
     },
     {
       "date": "2026-11-01",
       "contributions": 136,
-      "total": 3748
+      "total": 4815
     },
     {
       "date": "2026-11-02",
-      "contributions": 174,
-      "total": 3922
+      "contributions": 230,
+      "total": 5045
     },
     {
       "date": "2026-11-03",
-      "contributions": 90,
-      "total": 4012
+      "contributions": 93,
+      "total": 5138
     },
     {
       "date": "2026-11-04",
       "contributions": 51,
-      "total": 4063
+      "total": 5189
     },
     {
       "date": "2026-11-05",
-      "contributions": 127,
-      "total": 4190
+      "contributions": 143,
+      "total": 5332
     },
     {
       "date": "2026-11-06",
       "contributions": 116,
-      "total": 4306
+      "total": 5448
     },
     {
       "date": "2026-11-07",
       "contributions": 64,
-      "total": 4370
+      "total": 5512
     },
     {
       "date": "2026-11-08",
-      "contributions": 52,
-      "total": 4422
+      "contributions": 67,
+      "total": 5579
     },
     {
       "date": "2026-11-09",
-      "contributions": 137,
-      "total": 4559
+      "contributions": 149,
+      "total": 5728
     },
     {
       "date": "2026-11-10",
       "contributions": 46,
-      "total": 4605
+      "total": 5774
     },
     {
       "date": "2026-11-11",
       "contributions": 14,
-      "total": 4619
+      "total": 5788
     },
     {
       "date": "2026-11-12",
       "contributions": 35,
-      "total": 4654
+      "total": 5823
     },
     {
       "date": "2026-11-13",
-      "contributions": 46,
-      "total": 4700
+      "contributions": 53,
+      "total": 5876
     },
     {
       "date": "2026-11-14",
       "contributions": 19,
-      "total": 4719
+      "total": 5895
     },
     {
       "date": "2026-11-15",
       "contributions": 18,
-      "total": 4737
+      "total": 5913
     },
     {
       "date": "2026-11-16",
-      "contributions": 61,
-      "total": 4798
+      "contributions": 74,
+      "total": 5987
     },
     {
       "date": "2026-11-17",
       "contributions": 40,
-      "total": 4838
+      "total": 6027
     },
     {
       "date": "2026-11-18",
       "contributions": 67,
-      "total": 4905
+      "total": 6094
     },
     {
       "date": "2026-11-19",
       "contributions": 66,
-      "total": 4971
+      "total": 6160
     },
     {
       "date": "2026-11-20",
       "contributions": 22,
-      "total": 4993
+      "total": 6182
     },
     {
       "date": "2026-11-21",
       "contributions": 57,
-      "total": 5050
+      "total": 6239
     },
     {
       "date": "2026-11-22",
       "contributions": 24,
-      "total": 5074
+      "total": 6263
     },
     {
       "date": "2026-11-23",
-      "contributions": 22,
-      "total": 5096
+      "contributions": 46,
+      "total": 6309
     }
   ]
 }
